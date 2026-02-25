@@ -4,6 +4,7 @@
     "author": "Mouad Lyaazale",
     "price": 20.99,
     "currency": "EUR",
+    'license': 'LGPL-3',
     "category": "Sales/CRM",
     "summary": "Adds configurable Actions Commerciales table to Opportunities",
     "depends": ["crm"],
