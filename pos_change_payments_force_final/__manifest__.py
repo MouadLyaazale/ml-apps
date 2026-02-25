@@ -5,7 +5,8 @@
     "author": "Mouad Lyaazale",
     "price": 20.99,
     "currency": "EUR",
-    "summary": "Force edit POS payment lines for reporting even if posted/invoiced (SQL-only).",
+    "images": ["static/description/cover.png"],
+    "summary": "Force edit POS payment lines for reporting even if posted/invoiced.",
     "license": "LGPL-3",
     "depends": ["point_of_sale"],
     "data": [
