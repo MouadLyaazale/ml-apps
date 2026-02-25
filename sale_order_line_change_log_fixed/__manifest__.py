@@ -4,6 +4,7 @@
     "author": "Mouad Lyaazale",
     "price": 20.99,
     "currency": "EUR",
+    "license": "LGPL-3",
     "summary": "Log des modifications des lignes de commandes de vente dans le chatter",
     "depends": ["sale_management", "mail"],
     "data": [],
