@@ -11,6 +11,7 @@
     'author': 'Mouad Lyaazale',
     'price': 20.99,
     'currenc': 'EUR',
+    "images": ["static/description/cover.png"],
     'depends': ['sale'],
     'data': [
         'views/sale_view.xml',
