@@ -8,6 +8,9 @@
         but the user does not have permission to modify products.
     """,
     'category': 'Inventory',
+    "author": "Mouad Lyaazale",
+    "price": 20.99,
+    "currency": "EUR",
     'version': '19.0.0.1',
     'depends': ['stock'],
     'data': [],
