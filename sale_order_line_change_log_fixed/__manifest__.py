@@ -6,6 +6,7 @@
     "currency": "EUR",
     "license": "LGPL-3",
     "summary": "Log des modifications des lignes de commandes de vente dans le chatter",
+    "images": ["static/description/cover.png"],
     "depends": ["sale_management", "mail"],
     "data": [],
     "installable": True,
