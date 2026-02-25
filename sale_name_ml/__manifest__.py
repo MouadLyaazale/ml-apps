@@ -1,6 +1,9 @@
 {
     "name": "sale_name_ml",
     "version": "19.0.1.0.3",
+    "price": 20.99,
+    "currency": "EUR",
+    "license": "LGPL-3",
     "author": "Mouad Lyaazale",
     "depends": ["sale", "account"],
     "data": [
