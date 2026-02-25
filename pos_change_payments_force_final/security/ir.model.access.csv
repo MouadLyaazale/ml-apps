@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_wizard,pos.change.payments.wizard,model_pos_change_payments_wizard,pos_change_payments_force_final.group_pos_change_payments,1,1,1,1
+access_wizard_line,pos.change.payments.wizard.line,model_pos_change_payments_wizard_line,pos_change_payments_force_final.group_pos_change_payments,1,1,1,1
