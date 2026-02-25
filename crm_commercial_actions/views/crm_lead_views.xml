@@ -1,0 +1,35 @@
+<odoo>
+    <record id="crm_lead_form_actions_commerciales" model="ir.ui.view">
+        <field name="name">crm.lead.form.actions.commerciales</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Suivi">
+                    <button name="action_move_suivi_to_note"
+                            string="Déplacer vers Notes"
+                            type="object"
+                            class="btn-primary"
+                            icon="fa-arrow-right"/>
+                    <field name="action_line_ids">
+                        <list create="false" delete="false">
+                            <field name="label" readonly="1"/>
+                            <field name="display_value" string="Valeur" readonly="1"/>
+                        </list>
+                        <form>
+                            <group>
+                                <field name="label" readonly="1"/>
+                                <field name="value_type" invisible="1"/>
+                                <field name="value_char" invisible="value_type != 'char'"/>
+                                <field name="value_date" invisible="value_type != 'date'"/>
+                                <field name="value_datetime" invisible="value_type != 'datetime'"/>
+                                <field name="value_float" invisible="value_type != 'float'"/>
+                                <field name="value_boolean" invisible="value_type != 'boolean'"/>
+                            </group>
+                        </form>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
