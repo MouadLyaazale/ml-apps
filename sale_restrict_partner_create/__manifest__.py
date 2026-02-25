@@ -8,6 +8,9 @@
     """,
     'category': 'Sales',
     'version': '19.0.0.1',
+    'author': 'Mouad Lyaazale',
+    'price': 20.99,
+    'currenc': 'EUR',
     'depends': ['sale'],
     'data': [
         'views/sale_view.xml',
