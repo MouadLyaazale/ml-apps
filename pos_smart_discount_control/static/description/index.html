@@ -1,169 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8"/>
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: Arial, Helvetica, sans-serif; color: #333; background: #fff; }
-  a { color: #714B67; }
-
-  /* ── HERO ─────────────────────────────────────────── */
-  .hero {
-    background: #5a1e3c;
-    padding: 60px 40px;
-    text-align: center;
-    border-bottom: 5px solid #d04678;
-  }
-  .hero h1 { font-size: 2.8rem; color: #fff; margin-bottom: 10px; }
-  .hero .sub { font-size: 1.1rem; color: #f0b8d0; font-weight: bold; margin-bottom: 12px; }
-  .hero .desc { font-size: .95rem; color: #dda0bb; max-width: 700px; margin: 0 auto 20px; line-height: 1.7; }
-  .badge {
-    display: inline-block;
-    background: rgba(255,255,255,.15);
-    border: 1px solid rgba(255,255,255,.35);
-    border-radius: 20px;
-    padding: 4px 16px;
-    color: #fff;
-    font-size: .82rem;
-    margin: 4px 3px;
-  }
-
-  /* ── SECTIONS ─────────────────────────────────────── */
-  .section { padding: 50px 40px; }
-  .section.alt { background: #f8f4f6; }
-  .section h2 {
-    font-size: 1.7rem;
-    color: #5a1e3c;
-    padding-bottom: 10px;
-    border-bottom: 3px solid #d04678;
-    margin-bottom: 28px;
-  }
-
-  /* ── FEATURE GRID ─────────────────────────────────── */
-  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-  .card {
-    background: #fff;
-    border: 1px solid #e0d0d8;
-    border-radius: 10px;
-    padding: 22px;
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-    box-shadow: 0 2px 8px rgba(90,30,60,.07);
-  }
-  .card-icon {
-    width: 50px; height: 50px; min-width: 50px;
-    border-radius: 10px;
-    background: linear-gradient(135deg, #5a1e3c, #d04678);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.4rem;
-  }
-  .card h3 { font-size: 1rem; color: #2d0a1e; margin-bottom: 6px; }
-  .card p  { font-size: .88rem; color: #666; line-height: 1.6; }
-
-  /* ── SCREENSHOTS ──────────────────────────────────── */
-  .screens { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-  .screen-item img {
-    width: 100%;
-    border-radius: 8px;
-    border: 1px solid #e0d0d8;
-    box-shadow: 0 2px 10px rgba(0,0,0,.1);
-    display: block;
-  }
-  .screen-item .cap {
-    text-align: center;
-    font-size: .85rem;
-    color: #888;
-    margin-top: 8px;
-    font-style: italic;
-  }
-
-  /* ── STEPS ────────────────────────────────────────── */
-  .step { display: flex; gap: 18px; margin-bottom: 24px; align-items: flex-start; }
-  .step-num {
-    width: 38px; height: 38px; min-width: 38px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #5a1e3c, #d04678);
-    color: #fff; font-weight: bold; font-size: 1rem;
-    display: flex; align-items: center; justify-content: center;
-    margin-top: 2px;
-  }
-  .step strong { display: block; font-size: 1rem; color: #2d0a1e; margin-bottom: 4px; }
-  .step span   { font-size: .9rem; color: #555; line-height: 1.7; }
-
-  /* ── COMPAT TABLE ─────────────────────────────────── */
-  table.compat { width: 100%; border-collapse: collapse; border-radius: 8px; overflow: hidden; }
-  table.compat thead tr { background: #5a1e3c; color: #fff; }
-  table.compat th { padding: 12px 16px; text-align: left; font-size: .95rem; }
-  table.compat td { padding: 12px 16px; border-bottom: 1px solid #eee; font-size: .9rem; }
-  table.compat tr:last-child td { border-bottom: none; }
-  .ok   { color: #16a34a; font-weight: bold; }
-  .dep-tag {
-    display: inline-block;
-    background: #f3eaf0;
-    color: #5a1e3c;
-    border-radius: 4px;
-    padding: 2px 10px;
-    font-size: .82rem;
-    margin: 2px;
-    border: 1px solid #d0a0b8;
-  }
-
-  /* ── SUPPORT BOX ──────────────────────────────────── */
-  .support-box {
-    background: linear-gradient(135deg, #5a1e3c, #d04678);
-    border-radius: 12px;
-    padding: 32px;
-    text-align: center;
-    margin-top: 32px;
-    color: #fff;
-  }
-  .support-box h3 { font-size: 1.2rem; margin-bottom: 8px; }
-  .support-box p  { font-size: .92rem; opacity: .9; }
-
-  /* ── FOOTER ───────────────────────────────────────── */
-  .footer {
-    background: #2d0a1e;
-    padding: 40px;
-    text-align: center;
-    color: #e8c8d8;
-  }
-  .footer h2 { font-size: 1.4rem; color: #fff; margin-bottom: 6px; }
-  .footer .meta { font-size: .9rem; opacity: .7; margin-bottom: 20px; }
-  .pill {
-    display: inline-block;
-    background: rgba(255,255,255,.1);
-    border: 1px solid rgba(255,255,255,.2);
-    border-radius: 24px;
-    padding: 8px 22px;
-    font-size: .88rem;
-    color: #f0d0e0;
-    margin: 4px;
-  }
-  .footer .copy { font-size: .78rem; opacity: .4; margin-top: 20px; }
-</style>
-</head>
-<body>
+<head><meta charset="utf-8"/></head>
+<body style="font-family:Arial,Helvetica,sans-serif;color:#333;margin:0;padding:0;font-size:14px;background:#fff;">
 
 <!-- ══ HERO ═══════════════════════════════════════════════════ -->
-<div class="hero">
-  <h1>&#x1F6E1;&#xFE0F; POS Pro Suite</h1>
-  <p class="sub">Discount &middot; Stock &middot; Delivery &middot; Payments</p>
-  <p class="desc">
-    The all-in-one Odoo POS operations toolkit: PIN-protected discount limits,
-    minimum price guard, live stock badges on product cards, receipt blocked until
-    delivery validated, A4 delivery slip printing, and posted-order payment editing.
+<div style="background:#5a1e3c;padding:55px 40px;text-align:center;border-bottom:5px solid #d04678;">
+  <h1 style="color:#fff;font-size:2.4rem;margin:0 0 10px;font-weight:bold;">&#x1F6E1;&#xFE0F; POS Pro Suite</h1>
+  <p style="color:#f0b8d0;font-size:1.05rem;font-weight:bold;margin:0 0 10px;">Discount &middot; Stock &middot; Delivery &middot; Payments</p>
+  <p style="color:#dda0bb;font-size:.92rem;max-width:700px;margin:0 auto 20px;line-height:1.75;">
+    The all-in-one Odoo POS operations toolkit: PIN-protected discount limits, minimum price guard,
+    live stock badges on product cards, receipt blocked until delivery validated,
+    A4 delivery slip printing, and posted-order payment editing.
   </p>
-  <span class="badge">Point of Sale</span>
-  <span class="badge">Odoo 19</span>
-  <span class="badge">OPL-1</span>
-  <span class="badge">Community &amp; Enterprise</span>
+  <span style="display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.35);border-radius:20px;padding:4px 16px;color:#fff;font-size:.8rem;margin:3px;">Point of Sale</span>
+  <span style="display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.35);border-radius:20px;padding:4px 16px;color:#fff;font-size:.8rem;margin:3px;">Odoo 19</span>
+  <span style="display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.35);border-radius:20px;padding:4px 16px;color:#fff;font-size:.8rem;margin:3px;">OPL-1</span>
+  <span style="display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.35);border-radius:20px;padding:4px 16px;color:#fff;font-size:.8rem;margin:3px;">Community &amp; Enterprise</span>
 </div>
 
 <!-- ══ OVERVIEW ════════════════════════════════════════════════ -->
-<div class="section">
-  <h2>Overview</h2>
-  <p style="line-height:1.8;font-size:.95rem;">
+<div style="padding:45px 40px;background:#fff;">
+  <h2 style="color:#5a1e3c;font-size:1.6rem;border-bottom:3px solid #d04678;padding-bottom:10px;margin-bottom:20px;">Overview</h2>
+  <p style="line-height:1.8;font-size:.95rem;color:#444;">
     <strong>POS Pro Suite</strong> tackles the six most common real-world POS pain-points in a single install.
     Every feature is <strong>opt-in</strong> — enable only what you need via POS Settings so the interface
     stays clean for your cashiers and managers.
@@ -171,201 +29,206 @@
 </div>
 
 <!-- ══ FEATURES ════════════════════════════════════════════════ -->
-<div class="section alt">
-  <h2>Features</h2>
-  <div class="grid">
+<div style="padding:45px 40px;background:#f8f4f6;">
+  <h2 style="color:#5a1e3c;font-size:1.6rem;border-bottom:3px solid #d04678;padding-bottom:10px;margin-bottom:28px;">Features</h2>
 
-    <div class="card">
-      <div class="card-icon">&#x1F512;</div>
-      <div>
-        <h3>Discount Limit + PIN Approval</h3>
-        <p>Set a maximum discount % per order line. A popup requests a manager PIN before any higher discount is accepted.</p>
+  <!-- Row 1 -->
+  <div style="overflow:hidden;margin-bottom:20px;">
+    <div style="float:left;width:48%;margin-right:2%;">
+      <div style="background:#fff;border:1px solid #e0d0d8;border-radius:10px;padding:20px;min-height:90px;overflow:hidden;">
+        <div style="float:left;width:50px;height:50px;border-radius:10px;background:#5a1e3c;text-align:center;line-height:50px;font-size:1.4rem;margin-right:14px;">&#x1F512;</div>
+        <div style="overflow:hidden;">
+          <strong style="display:block;color:#2d0a1e;margin-bottom:5px;font-size:.97rem;">Discount Limit + PIN Approval</strong>
+          <span style="font-size:.87rem;color:#666;line-height:1.6;">Set a maximum discount % per order line. A popup requests a manager PIN before any higher discount is accepted.</span>
+        </div>
       </div>
     </div>
-
-    <div class="card">
-      <div class="card-icon">&#x1F4B2;</div>
-      <div>
-        <h3>Minimum Price Guard</h3>
-        <p>Block payment when the effective price after discount drops below a configured floor. PIN override required.</p>
+    <div style="float:left;width:48%;margin-left:2%;">
+      <div style="background:#fff;border:1px solid #e0d0d8;border-radius:10px;padding:20px;min-height:90px;overflow:hidden;">
+        <div style="float:left;width:50px;height:50px;border-radius:10px;background:#5a1e3c;text-align:center;line-height:50px;font-size:1.4rem;margin-right:14px;">&#x1F4B2;</div>
+        <div style="overflow:hidden;">
+          <strong style="display:block;color:#2d0a1e;margin-bottom:5px;font-size:.97rem;">Minimum Price Guard</strong>
+          <span style="font-size:.87rem;color:#666;line-height:1.6;">Block payment when the effective price after discount drops below a configured floor. PIN override required.</span>
+        </div>
       </div>
     </div>
-
-    <div class="card">
-      <div class="card-icon">&#x1F4E6;</div>
-      <div>
-        <h3>Live Stock Badge on Product Cards</h3>
-        <p>Free-to-sell qty shown on every product card in real time. <span style="color:#dc2626;font-weight:bold;">Red</span> = 0, <span style="color:#d97706;font-weight:bold;">Orange</span> = 1&ndash;5, <span style="color:#16a34a;font-weight:bold;">Green</span> &gt; 5.</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-icon">&#x1F69A;</div>
-      <div>
-        <h3>Receipt Blocked Until Delivery Validated</h3>
-        <p>Receipt screen and invoice generation are locked until the linked stock transfer is fully validated — no more forgotten deliveries.</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-icon">&#x1F5A8;</div>
-      <div>
-        <h3>Print A4 Delivery Slip from POS</h3>
-        <p>One-click button on the receipt screen opens a DOCX/PDF delivery note in a new tab using your configured template.</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-icon">&#x270F;</div>
-      <div>
-        <h3>Post-Order Payment Editor</h3>
-        <p>A backend wizard lets managers correct or reassign payment lines on already-posted POS orders without cancelling the session.</p>
-      </div>
-    </div>
-
   </div>
+
+  <!-- Row 2 -->
+  <div style="overflow:hidden;margin-bottom:20px;">
+    <div style="float:left;width:48%;margin-right:2%;">
+      <div style="background:#fff;border:1px solid #e0d0d8;border-radius:10px;padding:20px;min-height:90px;overflow:hidden;">
+        <div style="float:left;width:50px;height:50px;border-radius:10px;background:#5a1e3c;text-align:center;line-height:50px;font-size:1.4rem;margin-right:14px;">&#x1F4E6;</div>
+        <div style="overflow:hidden;">
+          <strong style="display:block;color:#2d0a1e;margin-bottom:5px;font-size:.97rem;">Live Stock Badge on Product Cards</strong>
+          <span style="font-size:.87rem;color:#666;line-height:1.6;">Free-to-sell qty on every card. <span style="color:#dc2626;font-weight:bold;">Red</span>=0, <span style="color:#d97706;font-weight:bold;">Orange</span>=1-5, <span style="color:#16a34a;font-weight:bold;">Green</span>&gt;5.</span>
+        </div>
+      </div>
+    </div>
+    <div style="float:left;width:48%;margin-left:2%;">
+      <div style="background:#fff;border:1px solid #e0d0d8;border-radius:10px;padding:20px;min-height:90px;overflow:hidden;">
+        <div style="float:left;width:50px;height:50px;border-radius:10px;background:#5a1e3c;text-align:center;line-height:50px;font-size:1.4rem;margin-right:14px;">&#x1F69A;</div>
+        <div style="overflow:hidden;">
+          <strong style="display:block;color:#2d0a1e;margin-bottom:5px;font-size:.97rem;">Receipt Blocked Until Delivery Validated</strong>
+          <span style="font-size:.87rem;color:#666;line-height:1.6;">Receipt screen and invoice generation locked until the linked stock transfer is fully validated.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Row 3 -->
+  <div style="overflow:hidden;">
+    <div style="float:left;width:48%;margin-right:2%;">
+      <div style="background:#fff;border:1px solid #e0d0d8;border-radius:10px;padding:20px;min-height:90px;overflow:hidden;">
+        <div style="float:left;width:50px;height:50px;border-radius:10px;background:#5a1e3c;text-align:center;line-height:50px;font-size:1.4rem;margin-right:14px;">&#x1F5A8;</div>
+        <div style="overflow:hidden;">
+          <strong style="display:block;color:#2d0a1e;margin-bottom:5px;font-size:.97rem;">Print A4 Delivery Slip from POS</strong>
+          <span style="font-size:.87rem;color:#666;line-height:1.6;">One-click button on the receipt screen opens a DOCX/PDF delivery note using your configured template.</span>
+        </div>
+      </div>
+    </div>
+    <div style="float:left;width:48%;margin-left:2%;">
+      <div style="background:#fff;border:1px solid #e0d0d8;border-radius:10px;padding:20px;min-height:90px;overflow:hidden;">
+        <div style="float:left;width:50px;height:50px;border-radius:10px;background:#5a1e3c;text-align:center;line-height:50px;font-size:1.4rem;margin-right:14px;">&#x270F;</div>
+        <div style="overflow:hidden;">
+          <strong style="display:block;color:#2d0a1e;margin-bottom:5px;font-size:.97rem;">Post-Order Payment Editor</strong>
+          <span style="font-size:.87rem;color:#666;line-height:1.6;">Backend wizard lets managers correct payment lines on already-posted orders without cancelling the session.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <!-- ══ SCREENSHOTS ══════════════════════════════════════════════ -->
-<div class="section">
-  <h2>Screenshots</h2>
-  <div class="screens">
+<div style="padding:45px 40px;background:#fff;">
+  <h2 style="color:#5a1e3c;font-size:1.6rem;border-bottom:3px solid #d04678;padding-bottom:10px;margin-bottom:28px;">Screenshots</h2>
 
-    <div class="screen-item">
-      <img src="setting%20image.png" alt="POS Settings"/>
-      <p class="cap">&#x2699;&#xFE0F; POS Settings &mdash; Discount Limit Configuration</p>
+  <div style="overflow:hidden;margin-bottom:24px;">
+    <div style="float:left;width:48%;margin-right:2%;">
+      <img src="setting%20image.png" alt="POS Settings" style="width:100%;border-radius:8px;border:1px solid #e0d0d8;display:block;"/>
+      <p style="text-align:center;font-size:.83rem;color:#888;margin:6px 0 0;font-style:italic;">&#x2699;&#xFE0F; POS Settings &mdash; Discount Limit</p>
     </div>
-
-    <div class="screen-item">
-      <img src="card%20stock%20show.png" alt="Stock badges on product cards"/>
-      <p class="cap">&#x1F4E6; Live Stock Badges on Product Cards</p>
+    <div style="float:left;width:48%;margin-left:2%;">
+      <img src="card%20stock%20show.png" alt="Stock badges" style="width:100%;border-radius:8px;border:1px solid #e0d0d8;display:block;"/>
+      <p style="text-align:center;font-size:.83rem;color:#888;margin:6px 0 0;font-style:italic;">&#x1F4E6; Live Stock Badges on Product Cards</p>
     </div>
-
-    <div class="screen-item">
-      <img src="price%20discount.png" alt="Discount on order line"/>
-      <p class="cap">&#x1F4B2; Discount Applied on Order Line</p>
-    </div>
-
-    <div class="screen-item">
-      <img src="discount%20limit%20exeeded.png" alt="PIN popup"/>
-      <p class="cap">&#x1F512; PIN Approval Popup (limit exceeded)</p>
-    </div>
-
-    <div class="screen-item">
-      <img src="error%20message%20if%20transfer%20not%20validated.png" alt="Receipt blocked"/>
-      <p class="cap">&#x1F69A; Receipt Blocked Until Delivery Validated</p>
-    </div>
-
-    <div class="screen-item">
-      <img src="print%20a4.png" alt="Print A4 delivery slip"/>
-      <p class="cap">&#x1F5A8; Print A4 Delivery Slip from Receipt Screen</p>
-    </div>
-
   </div>
+
+  <div style="overflow:hidden;margin-bottom:24px;">
+    <div style="float:left;width:48%;margin-right:2%;">
+      <img src="price%20discount.png" alt="Discount on order line" style="width:100%;border-radius:8px;border:1px solid #e0d0d8;display:block;"/>
+      <p style="text-align:center;font-size:.83rem;color:#888;margin:6px 0 0;font-style:italic;">&#x1F4B2; Discount Applied on Order Line</p>
+    </div>
+    <div style="float:left;width:48%;margin-left:2%;">
+      <img src="discount%20limit%20exeeded.png" alt="PIN popup" style="width:100%;border-radius:8px;border:1px solid #e0d0d8;display:block;"/>
+      <p style="text-align:center;font-size:.83rem;color:#888;margin:6px 0 0;font-style:italic;">&#x1F512; PIN Approval Popup</p>
+    </div>
+  </div>
+
+  <div style="overflow:hidden;">
+    <div style="float:left;width:48%;margin-right:2%;">
+      <img src="error%20message%20if%20transfer%20not%20validated.png" alt="Receipt blocked" style="width:100%;border-radius:8px;border:1px solid #e0d0d8;display:block;"/>
+      <p style="text-align:center;font-size:.83rem;color:#888;margin:6px 0 0;font-style:italic;">&#x1F69A; Receipt Blocked Until Delivery Validated</p>
+    </div>
+    <div style="float:left;width:48%;margin-left:2%;">
+      <img src="print%20a4.png" alt="Print A4 slip" style="width:100%;border-radius:8px;border:1px solid #e0d0d8;display:block;"/>
+      <p style="text-align:center;font-size:.83rem;color:#888;margin:6px 0 0;font-style:italic;">&#x1F5A8; Print A4 Delivery Slip</p>
+    </div>
+  </div>
+
 </div>
 
 <!-- ══ HOW IT WORKS ═════════════════════════════════════════════ -->
-<div class="section alt">
-  <h2>How It Works</h2>
+<div style="padding:45px 40px;background:#f8f4f6;">
+  <h2 style="color:#5a1e3c;font-size:1.6rem;border-bottom:3px solid #d04678;padding-bottom:10px;margin-bottom:28px;">How It Works</h2>
 
-  <div class="step">
-    <div class="step-num">1</div>
-    <div>
-      <strong>Configure the employee</strong>
-      <span>Employees &rarr; [Employee] &rarr; Settings. Enable <em>Discount Approval</em> and set a PIN code. Only employees with both fields configured can authorise overrides.</span>
-    </div>
+  <div style="overflow:hidden;margin-bottom:18px;">
+    <div style="float:left;width:38px;height:38px;border-radius:50%;background:#5a1e3c;color:#fff;text-align:center;line-height:38px;font-weight:bold;font-size:.95rem;margin-right:16px;">1</div>
+    <div style="overflow:hidden;"><strong style="display:block;color:#2d0a1e;margin-bottom:3px;">Configure the employee</strong><span style="font-size:.9rem;color:#555;line-height:1.7;">Employees &rarr; [Employee] &rarr; Settings. Enable <em>Discount Approval</em> and set a PIN code.</span></div>
   </div>
 
-  <div class="step">
-    <div class="step-num">2</div>
-    <div>
-      <strong>Set POS limits</strong>
-      <span>Point of Sale &rarr; Configuration &rarr; Settings &rarr; Order Line Discount. Enable the discount limit and enter the maximum % a cashier may apply freely.</span>
-    </div>
+  <div style="overflow:hidden;margin-bottom:18px;">
+    <div style="float:left;width:38px;height:38px;border-radius:50%;background:#5a1e3c;color:#fff;text-align:center;line-height:38px;font-weight:bold;font-size:.95rem;margin-right:16px;">2</div>
+    <div style="overflow:hidden;"><strong style="display:block;color:#2d0a1e;margin-bottom:3px;">Set POS limits</strong><span style="font-size:.9rem;color:#555;line-height:1.7;">Point of Sale &rarr; Configuration &rarr; Settings &rarr; Order Line Discount. Enable and set the max %.</span></div>
   </div>
 
-  <div class="step">
-    <div class="step-num">3</div>
-    <div>
-      <strong>Cashier applies a discount</strong>
-      <span>When the entered discount exceeds the limit, a PIN popup appears automatically on screen.</span>
-    </div>
+  <div style="overflow:hidden;margin-bottom:18px;">
+    <div style="float:left;width:38px;height:38px;border-radius:50%;background:#5a1e3c;color:#fff;text-align:center;line-height:38px;font-weight:bold;font-size:.95rem;margin-right:16px;">3</div>
+    <div style="overflow:hidden;"><strong style="display:block;color:#2d0a1e;margin-bottom:3px;">Cashier applies a discount</strong><span style="font-size:.9rem;color:#555;line-height:1.7;">When the entered discount exceeds the limit, a PIN popup appears automatically.</span></div>
   </div>
 
-  <div class="step">
-    <div class="step-num">4</div>
-    <div>
-      <strong>Manager enters PIN</strong>
-      <span>If the PIN matches an employee with Discount Approval, the discount is applied and logged under their name. Otherwise a warning is shown.</span>
-    </div>
+  <div style="overflow:hidden;margin-bottom:18px;">
+    <div style="float:left;width:38px;height:38px;border-radius:50%;background:#5a1e3c;color:#fff;text-align:center;line-height:38px;font-weight:bold;font-size:.95rem;margin-right:16px;">4</div>
+    <div style="overflow:hidden;"><strong style="display:block;color:#2d0a1e;margin-bottom:3px;">Manager enters PIN</strong><span style="font-size:.9rem;color:#555;line-height:1.7;">Correct PIN + Discount Approval = approved and logged. Wrong PIN = warning shown.</span></div>
   </div>
 
-  <div class="step">
-    <div class="step-num">5</div>
-    <div>
-      <strong>Receipt &amp; delivery</strong>
-      <span>After payment, the receipt screen stays accessible only once the delivery is validated. Print the A4 slip with one tap.</span>
-    </div>
+  <div style="overflow:hidden;">
+    <div style="float:left;width:38px;height:38px;border-radius:50%;background:#5a1e3c;color:#fff;text-align:center;line-height:38px;font-weight:bold;font-size:.95rem;margin-right:16px;">5</div>
+    <div style="overflow:hidden;"><strong style="display:block;color:#2d0a1e;margin-bottom:3px;">Receipt &amp; delivery</strong><span style="font-size:.9rem;color:#555;line-height:1.7;">Receipt accessible only once delivery is validated. Print A4 slip with one tap.</span></div>
   </div>
+
 </div>
 
 <!-- ══ CONFIGURATION ════════════════════════════════════════════ -->
-<div class="section">
-  <h2>Configuration Reference</h2>
+<div style="padding:45px 40px;background:#fff;">
+  <h2 style="color:#5a1e3c;font-size:1.6rem;border-bottom:3px solid #d04678;padding-bottom:10px;margin-bottom:24px;">Configuration Reference</h2>
 
-  <h3 style="color:#5a1e3c;margin:20px 0 8px;">Employee Form &rarr; Settings tab</h3>
-  <ul style="line-height:2;padding-left:20px;color:#444;">
+  <h3 style="color:#5a1e3c;font-size:1.05rem;margin:0 0 8px;">Employee Form &rarr; Settings tab</h3>
+  <ul style="line-height:2.1;padding-left:20px;color:#444;margin-bottom:20px;">
     <li><strong>Discount Approval</strong> &mdash; grant override rights to this employee.</li>
     <li><strong>PIN Code</strong> &mdash; 4-digit PIN used in the POS popup.</li>
   </ul>
 
-  <h3 style="color:#5a1e3c;margin:20px 0 8px;">POS Settings &rarr; Order Line Discount</h3>
-  <ul style="line-height:2;padding-left:20px;color:#444;">
-    <li><strong>Allow Discount Limit</strong> &mdash; master toggle for the discount ceiling feature.</li>
-    <li><strong>Max Discount (%)</strong> &mdash; ceiling cashiers can freely apply.</li>
-    <li><strong>Allow Employees to Override</strong> &mdash; when disabled, nobody can bypass even with a PIN.</li>
+  <h3 style="color:#5a1e3c;font-size:1.05rem;margin:0 0 8px;">POS Settings &rarr; Order Line Discount</h3>
+  <ul style="line-height:2.1;padding-left:20px;color:#444;margin-bottom:20px;">
+    <li><strong>Allow Discount Limit</strong> &mdash; master toggle for the ceiling feature.</li>
+    <li><strong>Max Discount (%)</strong> &mdash; ceiling cashiers can apply freely.</li>
+    <li><strong>Allow Employees to Override</strong> &mdash; when disabled, nobody can bypass.</li>
   </ul>
 
-  <h3 style="color:#5a1e3c;margin:20px 0 8px;">POS Settings &rarr; Minimum Price</h3>
-  <ul style="line-height:2;padding-left:20px;color:#444;">
-    <li><strong>Enable Minimum Price Guard</strong> &mdash; blocks payment if price drops below the floor.</li>
-    <li><strong>Minimum Price (%)</strong> &mdash; floor expressed as % of the original sale price.</li>
+  <h3 style="color:#5a1e3c;font-size:1.05rem;margin:0 0 8px;">POS Settings &rarr; Minimum Price</h3>
+  <ul style="line-height:2.1;padding-left:20px;color:#444;">
+    <li><strong>Enable Minimum Price Guard</strong> &mdash; blocks payment if price is too low.</li>
+    <li><strong>Minimum Price (%)</strong> &mdash; floor as % of original sale price.</li>
   </ul>
 </div>
 
 <!-- ══ COMPATIBILITY ════════════════════════════════════════════ -->
-<div class="section alt">
-  <h2>Compatibility &amp; Dependencies</h2>
+<div style="padding:45px 40px;background:#f8f4f6;">
+  <h2 style="color:#5a1e3c;font-size:1.6rem;border-bottom:3px solid #d04678;padding-bottom:10px;margin-bottom:24px;">Compatibility &amp; Dependencies</h2>
 
-  <table class="compat">
+  <table width="100%" cellpadding="12" cellspacing="0" style="border-collapse:collapse;border-radius:8px;overflow:hidden;">
     <thead>
-      <tr><th>Odoo Edition</th><th>Version</th><th>Status</th></tr>
+      <tr style="background:#5a1e3c;color:#fff;">
+        <th style="padding:12px 16px;text-align:left;">Odoo Edition</th>
+        <th style="padding:12px 16px;text-align:left;">Version</th>
+        <th style="padding:12px 16px;text-align:left;">Status</th>
+      </tr>
     </thead>
     <tbody>
-      <tr><td>Community</td><td>19.0</td><td class="ok">&#x2714; Supported</td></tr>
-      <tr><td>Enterprise</td><td>19.0</td><td class="ok">&#x2714; Supported</td></tr>
-      <tr><td>Odoo.sh</td><td>19.0</td><td class="ok">&#x2714; Supported</td></tr>
+      <tr style="border-bottom:1px solid #e0d0d8;background:#fff;"><td style="padding:12px 16px;">Community</td><td style="padding:12px 16px;">19.0</td><td style="padding:12px 16px;color:#16a34a;font-weight:bold;">&#x2714; Supported</td></tr>
+      <tr style="border-bottom:1px solid #e0d0d8;background:#fff;"><td style="padding:12px 16px;">Enterprise</td><td style="padding:12px 16px;">19.0</td><td style="padding:12px 16px;color:#16a34a;font-weight:bold;">&#x2714; Supported</td></tr>
+      <tr style="background:#fff;"><td style="padding:12px 16px;">Odoo.sh</td><td style="padding:12px 16px;">19.0</td><td style="padding:12px 16px;color:#16a34a;font-weight:bold;">&#x2714; Supported</td></tr>
     </tbody>
   </table>
 
-  <p style="margin-top:18px;font-size:.9rem;">
-    Required modules: <span class="dep-tag">point_of_sale</span> <span class="dep-tag">hr</span>
-  </p>
-  <p style="color:#888;font-size:.85rem;margin-top:6px;">No third-party Python packages required.</p>
+  <p style="margin-top:16px;font-size:.9rem;">Required: <span style="display:inline-block;background:#f3eaf0;color:#5a1e3c;border:1px solid #d0a0b8;border-radius:4px;padding:2px 10px;font-size:.82rem;margin:2px;">point_of_sale</span> <span style="display:inline-block;background:#f3eaf0;color:#5a1e3c;border:1px solid #d0a0b8;border-radius:4px;padding:2px 10px;font-size:.82rem;margin:2px;">hr</span></p>
 
-  <div class="support-box">
-    <h3>&#x1F6E1;&#xFE0F; 30-Day Free Support</h3>
-    <p>Bug or unexpected behaviour? Contact the author directly for free support within 30 days of purchase.</p>
+  <!-- Support box -->
+  <div style="background:#5a1e3c;border-radius:10px;padding:30px;text-align:center;margin-top:28px;">
+    <h3 style="color:#fff;margin:0 0 8px;font-size:1.1rem;">&#x1F6E1;&#xFE0F; 30-Day Free Support</h3>
+    <p style="color:rgba(255,255,255,.88);margin:0;font-size:.92rem;">Bug or unexpected behaviour? Contact the author for free support within 30 days of purchase.</p>
   </div>
 </div>
 
 <!-- ══ FOOTER ══════════════════════════════════════════════════ -->
-<div class="footer">
-  <h2>Mouad Lyaazale</h2>
-  <p class="meta">Odoo Developer &amp; Publisher &mdash; Morocco</p>
-  <span class="pill">&#x2709; mouad.lyaazale@gmail.com</span>
-  <span class="pill">&#x1F419; github.com/mouadlyaazale</span>
-  <p class="copy">&#169; 2025 Mouad Lyaazale. Licensed under OPL-1.</p>
+<div style="background:#2d0a1e;padding:40px;text-align:center;">
+  <h2 style="color:#fff;font-size:1.3rem;margin:0 0 6px;">Mouad Lyaazale</h2>
+  <p style="color:rgba(255,255,255,.65);font-size:.9rem;margin:0 0 18px;">Odoo Developer &amp; Publisher &mdash; Morocco</p>
+  <span style="display:inline-block;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:24px;padding:8px 22px;color:#f0d0e0;font-size:.88rem;margin:4px;">&#x2709; mouad.lyaazale@gmail.com</span>
+  <span style="display:inline-block;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:24px;padding:8px 22px;color:#f0d0e0;font-size:.88rem;margin:4px;">&#x1F419; github.com/mouadlyaazale</span>
+  <p style="color:rgba(255,255,255,.35);font-size:.78rem;margin:20px 0 0;">&#169; 2025 Mouad Lyaazale. Licensed under OPL-1.</p>
 </div>
 
 </body>
