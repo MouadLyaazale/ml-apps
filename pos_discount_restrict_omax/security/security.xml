@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo>
-  <record id="group_pos_change_payments" model="res.groups">
-    <field name="name">POS: Change Payments (Force)</field>
-    <field name="implied_ids" eval="[(4, ref('point_of_sale.group_pos_manager'))]"/>
-  </record>
-</odoo>
