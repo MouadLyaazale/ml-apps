@@ -6,7 +6,6 @@
     'category': 'Point of Sale',
     'sequence': 1,
     'author': 'Mouad Lyaazale',
-    'website': 'https://github.com/mouadlyaazale',
     'maintainer': 'Mouad Lyaazale',
     'support': 'mouad.lyaazale@gmail.com',
     'description': '''
