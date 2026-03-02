@@ -1,4 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_crm_action_template,crm.action.template,model_crm_action_template,base.group_user,1,1,1,1
-access_crm_action_template_line,crm.action.template.line,model_crm_action_template_line,base.group_user,1,1,1,1
-access_crm_lead_action_line,crm.lead.action.line,model_crm_lead_action_line,base.group_user,1,1,1,1
