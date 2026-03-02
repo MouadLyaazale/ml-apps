@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="pos_order_discount_limit" model="ir.ui.view">
+        <field name="name">POS.OrderReceipt.ThankYou</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='pos_accounting_section']" position="after">
+                <block title="Order Line Discount" id="custom_pos_discount_fields">
+                    <setting id="discount_limit"
+                        string="Discount Limit(%)"
+                        help="Set Discount Limit For The Any Point Of Sale Order"
+                        title="Set Discount Limit">
+                        <field name="access_discount_limit" />
+                        <field name="discount_limit" invisible="access_discount_limit == False" />
+                    </setting>
+                </block>
+                <block title="Order Line Price" id="custom_pos_price_fields">
+                    <setting id="price_limit"
+                        string="Minimum Price (%)"
+                        help="Set the minimum price cashiers can apply as a % of the product list price. E.g. 80 means they cannot go below 80% without supervisor approval."
+                        title="Set Minimum Price Limit">
+                        <field name="access_price_limit" />
+                        <field name="price_limit" invisible="access_price_limit == False" />
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+    
+</odoo>

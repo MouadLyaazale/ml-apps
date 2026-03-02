@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="pos_order_discount_limit" model="ir.ui.view">
+        <field name="name">POS.OrderReceipt.ThankYou</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='pos_accounting_section']" position="after">
+                <block title="Order Line Discount" id="custom_pos_discount_fields">
+                    <setting id="discount_limit"
+                        string="Discount Limit(%)"
+                        help="Set Discount Limit For The Any Point Of Sale Order"
+                        title="Set Discount Limit">
+                        <field name="access_discount_limit" />
+                        <field name="discount_limit" invisible="access_discount_limit == False" />
+                    </setting>
+                </block>
+                <block title="Order Line Price" id="custom_pos_price_fields">
+                    <setting id="price_limit"
+                        string="Minimum Price (%)"
+                        help="Set the minimum price cashiers can apply as a % of the product list price. E.g. 80 means they cannot go below 80% without supervisor approval."
+                        title="Set Minimum Price Limit">
+                        <field name="access_price_limit" />
+                        <field name="price_limit" invisible="access_price_limit == False" />
+                    </setting>
+                </block>
+                <block title="Stock Display" id="custom_pos_stock_fields">
+                    <setting id="show_stock_qty"
+                        string="Show Available Stock"
+                        help="Show free-to-sell stock quantity on each product card (on-hand minus reservations, scoped to this POS warehouse)."
+                        title="Display stock per warehouse in POS">
+                        <field name="show_stock_qty" />
+                    </setting>
+                </block>
+                <block title="Bon de Livraison A4" id="custom_pos_bl_a4">
+                    <setting id="show_bl_a4"
+                        string="Print Bon de Livraison (A4)"
+                        help="Show a 'Print A4 BL' button on the receipt screen after payment. Uses the DOCX template below."
+                        title="A4 BL printing on POS receipt screen">
+                        <field name="show_bl_a4" />
+                    </setting>
+                    <setting id="bl_docx_template_id"
+                        string="BL DOCX Template ID"
+                        help="ID of the docx.template record to use. Default 1 = SCHIELE."
+                        title="Which docx.template to print">
+                        <field name="bl_docx_template_id" />
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+    
+</odoo>

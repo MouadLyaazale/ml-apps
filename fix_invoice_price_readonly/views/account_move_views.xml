@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_move_form_fix_price_readonly" model="ir.ui.view">
+        <field name="name">account.move.form.fix.price.readonly</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account_effet.view_move_form_price_unit_readonly_from_so"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='invoice_line_ids']//field[@name='price_unit']" position="attributes">
+                <attribute name="readonly">0</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,33 @@
+<t t-name="pos_discount_restrict_omax.CustomDiscountLimitPopup" owl="1">
+
+    <Dialog title="props.title" size="'md'">
+        <div class="modal-body p-4">
+            <div class="mb-3">
+                <t t-out="props.body" />
+            </div>
+            <div class="mb-3">
+                <input 
+                    type="password" 
+                    class="o_input form-control" 
+                    placeholder="Enter supervisor password/PIN"
+                    t-ref="passwordInput"
+                    t-model="state.password"
+                    t-on-keydown="onKeyDown"
+                    style="width: 100%; padding: 8px 12px;"
+                />
+            </div>
+        </div>
+
+        <t t-set-slot="footer">
+            <div class="d-flex justify-content-end gap-2">
+                <button class="btn btn-secondary" t-on-click="onClose">
+                    Cancel
+                </button>
+                <button class="btn btn-primary" t-on-click="onConfirm">
+                    Confirm
+                </button>
+            </div>
+        </t>
+    </Dialog>
+
+</t>

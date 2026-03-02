@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; color: #374151; margin: 0; padding: 0; }
+        a { color: #714B67; text-decoration: none; }
+        p, li { line-height: 1.75; }
+        .hero { background: linear-gradient(135deg, #714B67 0%, #A63D72 50%, #FF6B6B 100%); color: #fff; padding: 60px 40px; text-align: center; }
+        .hero h1 { font-size: 2.4rem; margin: 0 0 12px; }
+        .hero p  { font-size: 1.1rem; opacity: .9; max-width: 680px; margin: 0 auto; }
+        .hero .badge { display: inline-block; background: rgba(255,255,255,.2); border: 1px solid rgba(255,255,255,.45); border-radius: 20px; padding: 4px 14px; font-size: .82rem; margin: 14px 4px 0; }
+        .section { padding: 48px 40px; }
+        .section:nth-child(even) { background: #F9FAFB; }
+        .section h2 { font-size: 1.6rem; color: #714B67; margin-bottom: 24px; border-bottom: 3px solid #714B67; padding-bottom: 8px; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 24px; }
+        .feature-card { background: #fff; border: 1px solid #E5E7EB; border-radius: 10px; padding: 24px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+        .feature-card .icon { width: 48px; height: 48px; border-radius: 10px; background: linear-gradient(135deg,#714B67,#A63D72); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; line-height:1; }
+        .feature-card .icon span { font-size: 1.5rem; }
+        .feature-card h3 { margin: 0 0 8px; font-size: 1rem; }
+        .feature-card p  { margin: 0; font-size: .9rem; color: #6B7280; }
+        .steps { counter-reset: step; margin: 0; padding: 0; list-style: none; }
+        .steps li { counter-increment: step; display: flex; gap: 18px; margin-bottom: 24px; }
+        .steps li::before { content: counter(step); flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg,#714B67,#A63D72); color: #fff; font-weight: 700; font-size: .9rem; display: flex; align-items: center; justify-content: center; }
+        .steps li div strong { display: block; margin-bottom: 4px; }
+        .steps li div p { margin: 0; color: #6B7280; font-size: .9rem; }
+        table.compat { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        table.compat th { background: #714B67; color: #fff; padding: 10px 14px; text-align: left; }
+        table.compat td { padding: 10px 14px; border-bottom: 1px solid #E5E7EB; font-size: .9rem; }
+        .tag { display: inline-block; background: #EDE9FE; color: #5B21B6; border-radius: 4px; padding: 2px 8px; font-size: .78rem; margin: 2px; }
+        .tag.green { background: #D1FAE5; color: #065F46; }
+        .support-box { background: linear-gradient(135deg,#714B67,#A63D72); color: #fff; border-radius: 10px; padding: 28px 32px; margin-top: 32px; text-align: center; }
+        .support-box h3 { margin: 0 0 8px; }
+        .support-box p  { margin: 0; opacity: .9; font-size: .92rem; }
+        .author-footer { background: #1F2937; color: #F9FAFB; padding: 40px; text-align: center; }
+        .author-footer h2 { font-size: 1.3rem; margin: 0 0 6px; }
+        .contact-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-top: 16px; }
+        .contact-pill { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.25); border-radius: 24px; padding: 8px 20px; font-size: .88rem; }
+        .screenshots-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 28px; margin-top: 24px; }
+        .screenshot-item { border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.12); border: 1px solid #E5E7EB; }
+        .screenshot-item img { width: 100%; display: block; }
+        .screenshot-item .caption { padding: 12px 16px; background: #fff; font-size: .88rem; font-weight: 600; color: #374151; border-top: 1px solid #E5E7EB; }
+        .screenshot-item .caption span { font-weight: 400; color: #6B7280; display: block; font-size: .82rem; margin-top: 2px; }
+    </style>
+</head>
+<body>
+
+<div class="hero">
+    <h1>&#x1F6E1;&#xFE0F; POS Pro Suite</h1>
+    <p style="font-size:1.3rem;font-weight:600;margin-bottom:8px">Discount &middot; Stock &middot; Delivery &middot; Payments</p>
+    <p>The all-in-one Odoo POS operations toolkit: PIN-protected discounts, minimum price guard, live stock qty on cards, receipt blocked until delivery, A4 delivery slip printing, and posted-order payment editing.</p>
+    <span class="badge">Point of Sale</span>
+    <span class="badge">Odoo 19</span>
+    <span class="badge">OPL-1</span>
+    <span class="badge">Community &amp; Enterprise</span>
+</div>
+
+<div class="section">
+    <h2>Overview</h2>
+    <p><strong>POS Pro Suite</strong> is the all-in-one operations module for Odoo Point of Sale. It tackles the six most common real-world POS pain-points in a single install: enforcing discount ceilings, protecting your margin with a minimum price floor, showing real-time stock counts on every product card, blocking receipts until stock is transferred, printing A4 delivery slips directly from POS, and correcting payment lines on posted orders.</p>
+    <p>Every feature is opt-in. Enable only what you need via POS Settings so the interface stays clean for your staff.</p>
+</div>
+
+<div class="section">
+    <h2>Features</h2>
+    <div class="features-grid">
+        <div class="feature-card"><div class="icon"><span>&#x1F512;</span></div><h3>Discount Limit + PIN Approval</h3><p>Set a maximum discount % per order line. A popup requests a manager PIN before any higher discount is accepted.</p></div>
+        <div class="feature-card"><div class="icon"><span>&#x1F4B2;</span></div><h3>Minimum Price Guard</h3><p>Block payment when the effective price after discount drops below a configured floor. PIN override required.</p></div>
+        <div class="feature-card"><div class="icon"><span>&#x1F4E6;</span></div><h3>Live Stock Badge</h3><p>Free-to-sell quantity on every product card. Red = 0, Orange = 1&#x2013;5, Green &gt; 5.</p></div>
+        <div class="feature-card"><div class="icon"><span>&#x1F69A;</span></div><h3>Receipt Blocked Until Delivery</h3><p>Receipt screen and invoice generation locked until the linked stock transfer is validated.</p></div>
+        <div class="feature-card"><div class="icon"><span>&#x1F5A8;&#xFE0F;</span></div><h3>Print A4 Delivery Slip</h3><p>One-click button opens a DOCX/PDF delivery note in a new tab using your configured template.</p></div>
+        <div class="feature-card"><div class="icon"><span>&#x270F;&#xFE0F;</span></div><h3>Post-Order Payment Editor</h3><p>Backend wizard lets managers correct payment lines on already-posted orders without cancelling the session.</p></div>
+    </div>
+</div>
+
+<div class="section">
+    <h2>How It Works</h2>
+    <ol class="steps">
+        <li><div><strong>Configure the employee</strong><p>Employees &rarr; [Employee] &rarr; Settings. Enable <em>Discount Approval</em> and set a PIN code.</p></div></li>
+        <li><div><strong>Set POS limits</strong><p>Point of Sale &rarr; Configuration &rarr; Settings &rarr; Order Line Discount. Enable Discount Limit and enter the max %.</p></div></li>
+        <li><div><strong>Cashier applies a discount</strong><p>When the entered discount exceeds the limit, a PIN popup appears automatically.</p></div></li>
+        <li><div><strong>Manager enters PIN</strong><p>If the PIN matches an employee with Discount Approval, the discount is applied and logged. Otherwise a warning is shown.</p></div></li>
+        <li><div><strong>Receipt &amp; delivery</strong><p>After payment, the receipt screen stays accessible only once the delivery is validated. Print the A4 slip with one tap.</p></div></li>
+    </ol>
+</div>
+
+<div class="section">
+    <h2>Screenshots</h2>
+    <div class="screenshots-grid">
+
+        <div class="screenshot-item">
+            <img src="setting%20image.png" alt="POS Settings — discount limit configuration"/>
+            <div class="caption">&#x2699;&#xFE0F; POS Settings<span>Enable the discount limit and set the maximum % per order line.</span></div>
+        </div>
+
+        <div class="screenshot-item">
+            <img src="card%20stock%20show.png" alt="Product cards with live stock badges"/>
+            <div class="caption">&#x1F4E6; Live Stock Badges on Product Cards<span>Free-to-sell qty shown in real time — color-coded Red / Orange / Green.</span></div>
+        </div>
+
+        <div class="screenshot-item">
+            <img src="price%20discount.png" alt="Discount applied on order line"/>
+            <div class="caption">&#x1F4B2; Discount on Order Line<span>Cashier applies a discount; the value is visible directly on the line.</span></div>
+        </div>
+
+        <div class="screenshot-item">
+            <img src="discount%20limit%20exeeded.png" alt="PIN approval popup when discount exceeds limit"/>
+            <div class="caption">&#x1F512; PIN Approval Popup<span>Triggered automatically when the entered discount exceeds the configured limit.</span></div>
+        </div>
+
+        <div class="screenshot-item">
+            <img src="error%20message%20if%20transfer%20not%20validated.png" alt="Receipt blocked until delivery is validated"/>
+            <div class="caption">&#x1F69A; Receipt Blocked Until Delivery<span>Warning shown when the linked stock transfer has not yet been validated.</span></div>
+        </div>
+
+        <div class="screenshot-item">
+            <img src="print%20a4.png" alt="Print A4 delivery slip button on receipt screen"/>
+            <div class="caption">&#x1F5A8;&#xFE0F; Print A4 Delivery Slip<span>One-click button on the receipt screen opens the delivery note as a PDF/DOCX.</span></div>
+        </div>
+
+    </div>
+</div>
+
+<div class="section">
+    <h2>Configuration Reference</h2>
+    <h3>Employee Form &rarr; Settings tab</h3>
+    <ul>
+        <li><strong>Discount Approval</strong> &#x2014; grant override rights to this employee.</li>
+        <li><strong>PIN Code</strong> &#x2014; 4-digit PIN used in the POS popup.</li>
+    </ul>
+    <h3>POS Settings &rarr; Order Line Discount</h3>
+    <ul>
+        <li><strong>Allow Discount Limit</strong> &#x2014; master toggle for the discount ceiling.</li>
+        <li><strong>Max Discount (%)</strong> &#x2014; ceiling cashiers can freely apply.</li>
+        <li><strong>Allow Employees to Override</strong> &#x2014; when disabled, no employee can bypass with PIN.</li>
+    </ul>
+    <h3>POS Settings &rarr; Minimum Price</h3>
+    <ul>
+        <li><strong>Enable Minimum Price Guard</strong> &#x2014; blocks payment below the floor.</li>
+        <li><strong>Minimum Price (%)</strong> &#x2014; floor as % of the original sale price.</li>
+    </ul>
+</div>
+
+<div class="section">
+    <h2>Compatibility &amp; Dependencies</h2>
+    <table class="compat">
+        <thead><tr><th>Odoo Edition</th><th>Version</th><th>Status</th></tr></thead>
+        <tbody>
+            <tr><td>Community</td><td>19.0</td><td><span class="tag green">&#x2714; Supported</span></td></tr>
+            <tr><td>Enterprise</td><td>19.0</td><td><span class="tag green">&#x2714; Supported</span></td></tr>
+            <tr><td>Odoo.sh</td><td>19.0</td><td><span class="tag green">&#x2714; Supported</span></td></tr>
+        </tbody>
+    </table>
+    <p style="margin-top:18px">Required modules: <span class="tag">point_of_sale</span> <span class="tag">hr</span></p>
+    <p style="color:#6B7280;font-size:.9rem">No third-party Python packages required.</p>
+    <div class="support-box">
+        <h3>&#x1F6E1;&#xFE0F; 30-Day Free Support</h3>
+        <p>Bug or unexpected behaviour? Contact the author directly for free support within 30 days of purchase.</p>
+    </div>
+</div>
+
+<div class="author-footer">
+    <h2>Mouad Lyaazale</h2>
+    <p style="opacity:.7;margin:4px 0 0">Odoo Developer &amp; Publisher &#x2014; Morocco</p>
+    <div class="contact-grid">
+        <span class="contact-pill">&#x2709; mouad.lyaazale@gmail.com</span>
+        <span class="contact-pill">&#x1F419; github.com/mouadlyaazale</span>
+    </div>
+    <p style="margin-top:20px;font-size:.8rem;opacity:.45">&#169; 2025 Mouad Lyaazale. Licensed under OPL-1.</p>
+</div>
+
+</body>
+</html>

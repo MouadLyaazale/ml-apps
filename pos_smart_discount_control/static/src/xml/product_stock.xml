@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="template" xml:space="preserve">
+
+    <!--
+        Extend the core ProductCard to show a free-to-sell stock badge.
+        Rendered only when pos.config.show_stock_qty is enabled.
+        Badge color: green = >5, orange = 1–5, red = ≤0.
+    -->
+    <t t-name="point_of_sale.ProductCard" t-inherit="point_of_sale.ProductCard" t-inherit-mode="extension">
+
+        <!-- Insert stock badge inside the product card article -->
+        <xpath expr="//article" position="inside">
+            <t t-if="this.stockQty !== null">
+                <span
+                    class="stock-qty-badge position-absolute top-0 start-0 m-1 px-2 py-0 rounded-pill fs-6 fw-bold lh-lg"
+                    t-att-class="this.stockBadgeClass"
+                    t-att-title="'Stock disponible: ' + this.stockQty">
+                    <t t-esc="this.stockQty"/>
+                </span>
+            </t>
+        </xpath>
+
+    </t>
+
+</templates>

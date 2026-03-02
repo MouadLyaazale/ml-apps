@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Add Force VAT button to move lines inline in bank statement reconciliation -->
+    <!-- This targets the move_ids field on bank statement to add button to matched move lines -->
+</odoo>
