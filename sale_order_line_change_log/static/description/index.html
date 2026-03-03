@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+</head>
+<body>
+
+<!-- BANNER -->
+<div class="text-center">
+    <img src="banner.png" alt="Sale Order Line History &amp; Audit Log" class="img-responsive" style="max-width:100%;"/>
+</div>
+
+<!-- INTRO SECTION -->
+<section class="container" style="margin-top:30px;">
+    <div class="row text-center">
+        <div class="col-md-12">
+            <h2 style="color:#875A7B;">Never Lose Track of Sales Order Changes Again</h2>
+            <p class="lead" style="font-size:16px; color:#555;">
+                <strong>Sale Order Line History &amp; Audit Log</strong> automatically records every modification made
+                to sale order lines and posts a detailed, human-readable note directly in the order chatter.
+                Know <em>what</em> changed, <em>when</em> it changed — with zero extra clicks.
+            </p>
+        </div>
+    </div>
+</section>
+
+<hr/>
+
+<!-- WHY YOU NEED IT -->
+<section class="container" style="margin-top:20px; margin-bottom:20px;">
+    <h3 style="color:#875A7B; text-align:center;">Why Your Sales Team Needs This</h3>
+    <table class="table table-bordered" style="margin-top:15px;">
+        <thead>
+            <tr style="background-color:#875A7B; color:#fff;">
+                <th style="padding:12px; text-align:center;">Without This Module</th>
+                <th style="padding:12px; text-align:center;">With This Module</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="padding:10px;">&#10060; No record of who changed a product on an order</td>
+                <td style="padding:10px;">&#10004; Full log of every product added or removed</td>
+            </tr>
+            <tr>
+                <td style="padding:10px;">&#10060; Impossible to see if a price was modified after confirmation</td>
+                <td style="padding:10px;">&#10004; Before/after price unit displayed in chatter</td>
+            </tr>
+            <tr>
+                <td style="padding:10px;">&#10060; Discount changes go undetected</td>
+                <td style="padding:10px;">&#10004; Discount percentage changes tracked precisely</td>
+            </tr>
+            <tr>
+                <td style="padding:10px;">&#10060; Quantity edits are invisible in audit</td>
+                <td style="padding:10px;">&#10004; Quantity and unit of measure changes logged</td>
+            </tr>
+            <tr>
+                <td style="padding:10px;">&#10060; Tax modifications cause silent billing errors</td>
+                <td style="padding:10px;">&#10004; Tax changes captured and logged automatically</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<hr/>
+
+<!-- KEY FEATURES -->
+<section class="container" style="margin-top:20px; margin-bottom:20px;">
+    <h3 style="color:#875A7B; text-align:center;">Key Features</h3>
+    <div class="row" style="margin-top:20px;">
+
+        <div class="col-md-4 text-center" style="padding:15px;">
+            <h4>&#128221; Automatic Chatter Logging</h4>
+            <p>Every save that touches order lines triggers an internal note in the chatter — no configuration needed.</p>
+        </div>
+
+        <div class="col-md-4 text-center" style="padding:15px;">
+            <h4>&#10133; / &#10134; Added &amp; Removed Lines</h4>
+            <p>Clearly distinguishes between new lines (green) and deleted lines (red) with full product details.</p>
+        </div>
+
+        <div class="col-md-4 text-center" style="padding:15px;">
+            <h4>&#9998; Field-Level Change Diff</h4>
+            <p>For modified lines, shows exactly which field changed with the old value → new value for each attribute.</p>
+        </div>
+
+    </div>
+    <div class="row" style="margin-top:10px;">
+
+        <div class="col-md-4 text-center" style="padding:15px;">
+            <h4>&#128176; Currency-Aware Prices</h4>
+            <p>Prices are formatted with the order's currency symbol and decimal precision automatically.</p>
+        </div>
+
+        <div class="col-md-4 text-center" style="padding:15px;">
+            <h4>&#9889; Zero Performance Impact</h4>
+            <p>Snapshots are only taken when <code>order_line</code> is actually part of the write — other saves are never touched.</p>
+        </div>
+
+        <div class="col-md-4 text-center" style="padding:15px;">
+            <h4>&#128274; Non-Intrusive</h4>
+            <p>Pure extension — no views, no fields, no security rules required. Installs and uninstalls cleanly.</p>
+        </div>
+
+    </div>
+</section>
+
+<hr/>
+
+<!-- SCREENSHOT -->
+<section class="container text-center" style="margin-top:20px; margin-bottom:20px;">
+    <h3 style="color:#875A7B;">See It In Action</h3>
+    <p style="color:#777; margin-bottom:15px;">Chatter log showing an order line modification with before/after values.</p>
+    <img src="screenshot.png"
+         alt="Chatter log example showing sale order line changes"
+         class="img-responsive img-thumbnail"
+         style="max-width:100%; border:2px solid #875A7B; border-radius:6px;"/>
+</section>
+
+<hr/>
+
+<!-- WHAT IS TRACKED TABLE -->
+<section class="container" style="margin-top:20px; margin-bottom:20px;">
+    <h3 style="color:#875A7B; text-align:center;">What Is Tracked on Every Save</h3>
+    <table class="table table-striped table-bordered" style="margin-top:15px;">
+        <thead>
+            <tr style="background-color:#875A7B; color:#fff;">
+                <th style="padding:10px; text-align:center;">Field</th>
+                <th style="padding:10px; text-align:center;">Tracked</th>
+                <th style="padding:10px;">Detail in Log</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="padding:8px;"><strong>Product</strong></td>
+                <td style="padding:8px; text-align:center;">&#10004;</td>
+                <td style="padding:8px;">Full display name of the product</td>
+            </tr>
+            <tr>
+                <td style="padding:8px;"><strong>Description</strong></td>
+                <td style="padding:8px; text-align:center;">&#10004;</td>
+                <td style="padding:8px;">Old description vs. new description</td>
+            </tr>
+            <tr>
+                <td style="padding:8px;"><strong>Quantity</strong></td>
+                <td style="padding:8px; text-align:center;">&#10004;</td>
+                <td style="padding:8px;">Qty before → qty after with unit of measure</td>
+            </tr>
+            <tr>
+                <td style="padding:8px;"><strong>Unit of Measure</strong></td>
+                <td style="padding:8px; text-align:center;">&#10004;</td>
+                <td style="padding:8px;">UoM name included alongside quantity</td>
+            </tr>
+            <tr>
+                <td style="padding:8px;"><strong>Unit Price</strong></td>
+                <td style="padding:8px; text-align:center;">&#10004;</td>
+                <td style="padding:8px;">Formatted with currency (e.g., 150.00 $)</td>
+            </tr>
+            <tr>
+                <td style="padding:8px;"><strong>Discount %</strong></td>
+                <td style="padding:8px; text-align:center;">&#10004;</td>
+                <td style="padding:8px;">Previous % → current %</td>
+            </tr>
+            <tr>
+                <td style="padding:8px;"><strong>Taxes</strong></td>
+                <td style="padding:8px; text-align:center;">&#10004;</td>
+                <td style="padding:8px;">Comma-separated tax names before and after</td>
+            </tr>
+            <tr>
+                <td style="padding:8px;"><strong>Line Added</strong></td>
+                <td style="padding:8px; text-align:center;">&#10004;</td>
+                <td style="padding:8px;">Full snapshot of the new line in green</td>
+            </tr>
+            <tr>
+                <td style="padding:8px;"><strong>Line Removed</strong></td>
+                <td style="padding:8px; text-align:center;">&#10004;</td>
+                <td style="padding:8px;">Full snapshot of the deleted line in red</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<hr/>
+
+<!-- HOW IT WORKS -->
+<section class="container" style="margin-top:20px; margin-bottom:20px;">
+    <h3 style="color:#875A7B; text-align:center;">How It Works</h3>
+    <table class="table" style="margin-top:15px;">
+        <tbody>
+            <tr>
+                <td style="padding:14px; text-align:center; font-size:24px; vertical-align:top;">1&#65039;&#8419;</td>
+                <td style="padding:14px; vertical-align:top;">
+                    <strong>Before Write — Snapshot</strong><br/>
+                    When a sale order is saved with order line changes, the module captures a before-snapshot of all line data.
+                </td>
+            </tr>
+            <tr>
+                <td style="padding:14px; text-align:center; font-size:24px; vertical-align:top;">2&#65039;&#8419;</td>
+                <td style="padding:14px; vertical-align:top;">
+                    <strong>Write Executes Normally</strong><br/>
+                    The standard Odoo write logic runs without any interference — no performance overhead during the actual save.
+                </td>
+            </tr>
+            <tr>
+                <td style="padding:14px; text-align:center; font-size:24px; vertical-align:top;">3&#65039;&#8419;</td>
+                <td style="padding:14px; vertical-align:top;">
+                    <strong>After Write — Compare &amp; Log</strong><br/>
+                    The module compares the after-state with the snapshot, builds an HTML diff message, and posts it as an internal note in the chatter.
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<hr/>
+
+<!-- COMPATIBILITY -->
+<section class="container" style="margin-top:20px; margin-bottom:20px;">
+    <h3 style="color:#875A7B; text-align:center;">Compatibility &amp; Requirements</h3>
+    <table class="table table-bordered text-center" style="margin-top:15px;">
+        <thead>
+            <tr style="background-color:#875A7B; color:#fff;">
+                <th style="padding:10px;">Odoo Version</th>
+                <th style="padding:10px;">Required Apps</th>
+                <th style="padding:10px;">Enterprise Needed?</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="padding:10px;">19.0</td>
+                <td style="padding:10px;">Sales Management, Discuss</td>
+                <td style="padding:10px;">No — works on Community &amp; Enterprise</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<hr/>
+
+<!-- SUPPORT -->
+<section class="container text-center" style="margin-top:20px; margin-bottom:30px;">
+    <h3 style="color:#875A7B;">Support &amp; Contact</h3>
+    <p>
+        Questions, feature requests, or bugs? Reach out directly:<br/>
+        <strong>Mouad Lyaazale</strong><br/>
+        <a href="mailto:mouad.lyaazale@gmail.com">mouad.lyaazale@gmail.com</a>
+    </p>
+    <p class="text-muted" style="font-size:12px;">
+        After purchase, support is provided via email. We typically respond within 24 hours on business days.
+    </p>
+</section>
+
+</body>
+</html>
