@@ -104,8 +104,8 @@
         <field name="name">Rapport de Pointage</field>
         <field name="model">hr.employee</field>
         <field name="report_type">qweb-pdf</field>
-        <field name="report_name">atelier_schiele.report_pointage_employee</field>
-        <field name="report_file">atelier_schiele.report_pointage_employee</field>
+        <field name="report_name">atelier.report_pointage_employee</field>
+        <field name="report_file">atelier.report_pointage_employee</field>
         <field name="print_report_name">'Pointage – ' + object.name</field>
         <field name="binding_model_id" ref="hr.model_hr_employee"/>
         <field name="binding_type">report</field>

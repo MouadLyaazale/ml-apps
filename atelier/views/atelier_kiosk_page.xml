@@ -11,7 +11,7 @@
                 <link rel="icon" href="/web/static/img/favicon.ico"/>
                 <link rel="stylesheet"
                       type="text/css"
-                      href="/atelier_schiele/static/src/css/atelier.css"/>
+                      href="/atelier/static/src/css/atelier.css"/>
             </head>
             <body class="atelier-kiosk-body">
                 <div id="atelier-root">
@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 <script type="text/javascript"
-                        src="/atelier_schiele/static/src/js/atelier_app.js">
+                        src="/atelier/static/src/js/atelier_app.js">
                 </script>
             </body>
         </html>

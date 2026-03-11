@@ -3,7 +3,7 @@ from datetime import datetime, date, timedelta
 
 
 class AtelierPointageReport(models.AbstractModel):
-    _name = 'report.atelier_schiele.report_pointage_employee'
+    _name = 'report.atelier.report_pointage_employee'
     _description = 'Rapport de pointage atelier'
 
     @api.model

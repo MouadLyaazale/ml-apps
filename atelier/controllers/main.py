@@ -17,11 +17,11 @@ class AtelierController(http.Controller):
 
     @http.route('/atelier', type='http', auth='public', website=False)
     def atelier_index(self, **kwargs):
-        return request.render('atelier_schiele.kiosk_page', {})
+        return request.render('atelier.kiosk_page', {})
 
     @http.route('/atelier/supervisor', type='http', auth='user', website=False)
     def atelier_supervisor(self, **kwargs):
-        return request.render('atelier_schiele.supervisor_page', {
+        return request.render('atelier.supervisor_page', {
             'user_name': request.env.user.name,
         })
 
