@@ -1,8 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-atelier_mrp_production_user,atelier.mrp.production.user,mrp.model_mrp_production,base.group_user,1,0,0,0
-atelier_mrp_workorder_user,atelier.mrp.workorder.user,mrp.model_mrp_workorder,base.group_user,1,0,0,0
-atelier_mrp_productivity_user,atelier.mrp.productivity.user,mrp.model_mrp_workcenter_productivity,base.group_user,1,1,1,0
-atelier_hr_employee_user,atelier.hr.employee.user,hr.model_hr_employee,base.group_user,1,0,0,0
-atelier_shift_user,atelier.shift user,model_atelier_shift,base.group_user,1,0,0,0
-atelier_shift_manager,atelier.shift manager,model_atelier_shift,mrp.group_mrp_manager,1,1,1,1
-atelier_time_correction_manager,atelier.time.correction manager,model_atelier_time_correction,mrp.group_mrp_manager,1,1,1,1
