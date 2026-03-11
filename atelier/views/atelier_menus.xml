@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Action URL pour ouvrir le kiosque dans un nouvel onglet (défini avant le menu) -->
+    <record id="atelier_kiosk_url_action" model="ir.actions.act_url">
+        <field name="name">Ouvrir le Kiosque Atelier</field>
+        <field name="url">/atelier</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="atelier_supervisor_url_action" model="ir.actions.act_url">
+        <field name="name">Tableau de bord Superviseur</field>
+        <field name="url">/atelier/supervisor</field>
+        <field name="target">new</field>
+    </record>
+
+    <!-- Sous-menu dans Fabrication -->
+    <menuitem id="atelier_menu_root"
+              name="Atelier"
+              parent="mrp.menu_mrp_root"
+              sequence="99"/>
+
+    <menuitem id="atelier_menu_lancer"
+              name="OF Lancés"
+              parent="atelier_menu_root"
+              action="atelier_mrp_production_lancer_action"
+              sequence="10"/>
+
+    <menuitem id="atelier_menu_shifts"
+              name="Vacations"
+              parent="atelier_menu_root"
+              action="atelier_shift_action"
+              sequence="20"/>
+
+    <menuitem id="atelier_menu_productivity"
+              name="Blocs de temps"
+              parent="atelier_menu_root"
+              action="atelier_productivity_action"
+              sequence="30"/>
+
+    <menuitem id="atelier_menu_kiosk_link"
+              name="Ouvrir le Kiosque (/atelier)"
+              parent="atelier_menu_root"
+              sequence="40"
+              action="atelier_kiosk_url_action"/>
+
+    <menuitem id="atelier_menu_supervisor_link"
+              name="Tableau de bord Superviseur"
+              parent="atelier_menu_root"
+              sequence="50"
+              action="atelier_supervisor_url_action"/>
+
+</odoo>

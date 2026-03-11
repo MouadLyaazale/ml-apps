@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         QWeb Template : Rapport de Pointage Technicien
+         ══════════════════════════════════════════════════════════════ -->
+    <template id="report_pointage_employee">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="employee">
+                <t t-call="web.external_layout">
+                    <t t-set="blocks"        t-value="blocks_map[employee.id]"/>
+                    <t t-set="total_minutes" t-value="total_map[employee.id]"/>
+                    <div class="page">
+                        <div class="row mb-4">
+                            <div class="col-8">
+                                <h2>Rapport de Pointage – Atelier</h2>
+                                <h4><t t-esc="employee.name"/></h4>
+                                <p class="text-muted">
+                                    <t t-esc="employee.job_title or ''"/>
+                                    <t t-if="employee.atelier_shift_id">
+                                        &#160;•&#160; Vacation : <t t-esc="employee.atelier_shift_id.name"/>
+                                    </t>
+                                </p>
+                            </div>
+                            <div class="col-4 text-end">
+                                <p><strong>Date :</strong> <t t-esc="context.get('report_date', today_str)"/></p>
+                                <p><strong>Généré le :</strong> <t t-esc="now_str"/></p>
+                            </div>
+                        </div>
+
+                        <table class="table table-sm table-bordered">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Heure début</th>
+                                    <th>Heure fin</th>
+                                    <th>Durée</th>
+                                    <th>Opération</th>
+                                    <th>Ordre de fabrication</th>
+                                    <th>Centre de travail</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="blocks" t-as="b">
+                                    <tr t-att-class="'table-warning' if not b.date_end else ''">
+                                        <td><t t-esc="b.date_start" t-options="{'widget': 'datetime', 'format': 'HH:mm:ss'}"/></td>
+                                        <td>
+                                            <t t-if="b.date_end">
+                                                <t t-esc="b.date_end" t-options="{'widget': 'datetime', 'format': 'HH:mm:ss'}"/>
+                                            </t>
+                                            <t t-else="">
+                                                <span class="badge bg-success">En cours</span>
+                                            </t>
+                                        </td>
+                                        <td>
+                                            <t t-set="h" t-value="int(b.duration // 60)"/>
+                                            <t t-set="m" t-value="int(b.duration % 60)"/>
+                                            <t t-esc="'%02d:%02d' % (h, m)"/>
+                                        </td>
+                                        <td><t t-esc="b.workorder_id.name if b.workorder_id else '—'"/></td>
+                                        <td><t t-esc="b.workorder_id.production_id.name if b.workorder_id else '—'"/></td>
+                                        <td><t t-esc="b.workcenter_id.name if b.workcenter_id else '—'"/></td>
+                                    </tr>
+                                </t>
+                                <t t-if="not blocks">
+                                    <tr>
+                                        <td colspan="6" class="text-center text-muted">Aucun bloc de temps pour cette période.</td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                            <tfoot class="table-light">
+                                <tr>
+                                    <th colspan="2">Total</th>
+                                    <th>
+                                        <t t-set="total_h" t-value="int(total_minutes // 60)"/>
+                                        <t t-set="total_m" t-value="int(total_minutes % 60)"/>
+                                        <strong><t t-esc="'%02d:%02d' % (total_h, total_m)"/></strong>
+                                    </th>
+                                    <th colspan="3"></th>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+                        <div class="row mt-4">
+                            <div class="col-6">
+                                <p>Signature technicien :</p>
+                                <div style="border-bottom:1px solid #333; width:200px; margin-top:40px;"/>
+                                <p><t t-esc="employee.name"/></p>
+                            </div>
+                            <div class="col-6">
+                                <p>Visa superviseur :</p>
+                                <div style="border-bottom:1px solid #333; width:200px; margin-top:40px;"/>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         Action rapport
+         ══════════════════════════════════════════════════════════════ -->
+    <record id="action_report_pointage_employee" model="ir.actions.report">
+        <field name="name">Rapport de Pointage</field>
+        <field name="model">hr.employee</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">atelier.report_pointage_employee</field>
+        <field name="report_file">atelier.report_pointage_employee</field>
+        <field name="print_report_name">'Pointage – ' + object.name</field>
+        <field name="binding_model_id" ref="hr.model_hr_employee"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>
