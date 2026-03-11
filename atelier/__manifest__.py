@@ -4,7 +4,7 @@
     'summary': 'Shop-floor kiosk with PIN login, real-time time tracking & supervisor dashboard for manufacturing orders',
     'description': """
 Atelier shop-floor kiosk for Odoo Manufacturing.
-See static/description/index.html for the full Apps Store description.
+See static/Description/index.html for the full Apps Store description.
     """,
     'category': 'Manufacturing',
     'author': 'mouad lyaazale',
