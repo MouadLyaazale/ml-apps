@@ -11,7 +11,7 @@ See static/description/index.html for the full Apps Store description.
     'price': 300.0,
     'currency': 'USD',
     'images': [
-        'static/description/banner.png',
+        'static/Description/banner.png',
     ],
     'depends': ['mrp', 'hr', 'web', 'quality_control', 'quality_mrp_workorder'],
     'data': [
