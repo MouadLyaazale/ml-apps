@@ -39,7 +39,13 @@ See static/Description/index.html for the full Apps Store description.
         'views/atelier_menus.xml',
         'reports/atelier_pointage_report.xml',
     ],
-    'assets': {},
+    'assets': {'atelier._assets_atelier':[
+            'atelier/static/src/js/atelier_app.js',
+            'atelier/static/src/js/supervisor_app.js',
+            'atelier/static/src/css/atelier.css',
+            'atelier/static/src/css/supervisor.css',
+
+        ]},
     'installable': True,
     'application': True,
     'license': 'LGPL-3',
