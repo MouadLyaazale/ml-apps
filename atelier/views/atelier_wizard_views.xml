@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ── Correcteur de temps ── -->
+    <record id="atelier_time_correction_form" model="ir.ui.view">
+        <field name="name">atelier.time.correction.form</field>
+        <field name="model">atelier.time.correction</field>
+        <field name="arch" type="xml">
+            <form string="Correction de temps">
+                <group string="Bloc de temps à corriger">
+                    <field name="productivity_id" string="Bloc de temps"
+                           domain="[('workorder_id', '!=', False)]"/>
+                    <field name="employee_id"   readonly="1"/>
+                    <field name="workorder_id"  readonly="1"/>
+                    <field name="production_id" readonly="1"/>
+                </group>
+                <group string="Valeurs originales">
+                    <field name="date_start_original" readonly="1"/>
+                    <field name="date_end_original"   readonly="1"/>
+                </group>
+                <group string="Nouvelles valeurs">
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="reason" placeholder="Expliquer la raison de la correction…"/>
+                </group>
+                <footer>
+                    <button name="action_apply" type="object"
+                            string="Appliquer la correction" class="btn-primary"/>
+                    <button string="Annuler" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="atelier_time_correction_action" model="ir.actions.act_window">
+        <field name="name">Correction de temps</field>
+        <field name="res_model">atelier.time.correction</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <!-- ── Vue liste des blocs de productivité avec boutons superviseur ── -->
+    <record id="atelier_productivity_list" model="ir.ui.view">
+        <field name="name">atelier.mrp.productivity.list</field>
+        <field name="model">mrp.workcenter.productivity</field>
+        <field name="arch" type="xml">
+            <list string="Blocs de temps atelier"
+                  decoration-warning="not date_end"
+                  decoration-success="date_end">
+                <field name="employee_id"/>
+                <field name="workorder_id"/>
+                <field name="workcenter_id"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+                <field name="duration" widget="float_time" string="Durée (h)"/>
+                <button name="action_open_time_correction"
+                        type="object"
+                        icon="fa-edit"
+                        title="Corriger ce bloc"/>
+                <button name="action_atelier_force_close"
+                        type="object"
+                        icon="fa-stop-circle"
+                        title="Forcer la clôture"
+                        invisible="date_end"
+                        confirm="Forcer la clôture de ce chrono ?"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="atelier_productivity_action" model="ir.actions.act_window">
+        <field name="name">Blocs de temps atelier</field>
+        <field name="res_model">mrp.workcenter.productivity</field>
+        <field name="view_id" ref="atelier_productivity_list"/>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('workorder_id', '!=', False)]</field>
+        <field name="context">{'search_default_today': 1}</field>
+    </record>
+
+</odoo>
