@@ -12,6 +12,18 @@ See static/Description/index.html for the full Apps Store description.
     'currency': 'USD',
     'images': [
         'static/Description/banner.png',
+        'static/Description/icon.png',
+        'static/Description/config pin employee form.png',
+        'static/Description/entree atelier kiosk',
+        'static/Description/kiosk in order de fabrication menu.png',
+        'static/Description/menu block de temps.png',
+        'static/Description/menu of lancer.png',
+        'static/Description/menu superviseur.png',
+        'static/Description/menu tecnician.png',
+        'static/Description/menu vacation.png',
+        'static/Description/of lancer superviseur menu.png',
+
+
     ],
     'depends': ['mrp', 'hr', 'web', 'quality_control', 'quality_mrp_workorder'],
     'data': [
