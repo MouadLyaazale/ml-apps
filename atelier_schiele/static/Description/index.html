@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <style>
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 24px;
+            line-height: 1.65;
+        }
+        h1 { color: #1a73e8; font-size: 2rem; margin-bottom: 4px; }
+        h2 { color: #1a73e8; font-size: 1.3rem; border-bottom: 2px solid #e8f0fe; padding-bottom: 6px; margin-top: 36px; }
+        h3 { color: #333; font-size: 1.05rem; margin-top: 20px; }
+        .tagline { font-size: 1.15rem; color: #555; margin-top: 0; }
+        .badge-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+        .badge {
+            background: #e8f0fe;
+            color: #1a73e8;
+            border-radius: 20px;
+            padding: 4px 14px;
+            font-size: 0.88rem;
+            font-weight: 600;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 24px 0;
+        }
+        .feature-card {
+            background: #f8f9fa;
+            border-left: 4px solid #1a73e8;
+            border-radius: 6px;
+            padding: 16px 20px;
+        }
+        .feature-card .icon { font-size: 1.6rem; margin-bottom: 8px; }
+        .feature-card h3 { margin: 0 0 8px; color: #1a73e8; font-size: 1rem; }
+        .feature-card p { margin: 0; font-size: 0.92rem; color: #555; }
+        .screenshot-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin: 24px 0;
+            justify-content: center;
+        }
+        .screenshot-wrap {
+            flex: 1 1 400px;
+            max-width: 100%;
+            text-align: center;
+        }
+        .screenshot-wrap img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+            border: 1px solid #dee2e6;
+        }
+        .screenshot-wrap figcaption {
+            margin-top: 6px;
+            font-size: 0.84rem;
+            color: #666;
+            font-style: italic;
+        }
+        .highlight-box {
+            background: #e8f0fe;
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin: 24px 0;
+        }
+        .highlight-box p { margin: 0; font-size: 0.96rem; }
+        table { border-collapse: collapse; width: 100%; margin: 16px 0; font-size: 0.93rem; }
+        th { background: #1a73e8; color: #fff; padding: 8px 12px; text-align: left; }
+        td { padding: 8px 12px; border-bottom: 1px solid #dee2e6; }
+        tr:hover td { background: #f0f4ff; }
+        .price-banner {
+            background: linear-gradient(135deg, #1a73e8, #0d47a1);
+            color: #fff;
+            border-radius: 10px;
+            padding: 24px 32px;
+            margin: 32px 0;
+            text-align: center;
+        }
+        .price-banner .amount { font-size: 2.4rem; font-weight: 700; }
+        .price-banner .note { font-size: 0.9rem; opacity: 0.85; margin-top: 4px; }
+        .author-card {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin-top: 32px;
+        }
+        .author-card .avatar {
+            width: 56px; height: 56px;
+            border-radius: 50%;
+            background: #1a73e8;
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 1.6rem; font-weight: 700;
+            flex-shrink: 0;
+        }
+        .author-card h3 { margin: 0 0 4px; }
+        .author-card p  { margin: 0; font-size: 0.9rem; color: #666; }
+        ul li { margin-bottom: 6px; }
+    </style>
+</head>
+<body>
+
+    <!-- ═══════════════════  HEADER  ═══════════════════ -->
+    <h1>⚙️ Atelier</h1>
+    <p class="tagline">The smart shop-floor kiosk &amp; supervisor dashboard for Odoo Manufacturing</p>
+
+    <div class="badge-list">
+        <span class="badge">Odoo 19</span>
+        <span class="badge">Manufacturing</span>
+        <span class="badge">Kiosk</span>
+        <span class="badge">Time Tracking</span>
+        <span class="badge">Supervisor Dashboard</span>
+        <span class="badge">PIN Login</span>
+        <span class="badge">Shifts</span>
+        <span class="badge">Quality</span>
+    </div>
+
+    <div class="highlight-box">
+        <p>
+            <strong>Atelier</strong> turns any tablet or wall-mounted screen into a powerful
+            shop-floor kiosk. Technicians log in with a personal PIN, see only <em>their</em>
+            launched Manufacturing Orders, and track time with a single tap — no Odoo licence
+            needed on the factory floor.
+        </p>
+    </div>
+
+    <!-- ═══════════════════  SCREENSHOTS – KIOSK ENTRY  ═══════════════════ -->
+    <h2>🖥️ Kiosk Interface</h2>
+
+    <div class="screenshot-row">
+        <figure class="screenshot-wrap">
+            <img src="../Description/entree atelier kiosk.png"
+                 alt="Kiosk entry screen"/>
+            <figcaption>Kiosk entry screen — technicians select their name and enter their PIN</figcaption>
+        </figure>
+        <figure class="screenshot-wrap">
+            <img src="../Description/config pin employee form.png"
+                 alt="Employee PIN configuration"/>
+            <figcaption>Employee PIN configuration form inside the Odoo backend</figcaption>
+        </figure>
+    </div>
+
+    <div class="screenshot-row">
+        <figure class="screenshot-wrap">
+            <img src="../Description/menu tecnician.png"
+                 alt="Technician view"/>
+            <figcaption>Technician's personal view — launched MOs assigned to them with live timers</figcaption>
+        </figure>
+        <figure class="screenshot-wrap">
+            <img src="../Description/kiosk in order de fabrication menu.png"
+                 alt="MO detail in kiosk"/>
+            <figcaption>Manufacturing Order detail — start, pause or stop the timer per operation</figcaption>
+        </figure>
+    </div>
+
+    <!-- ═══════════════════  SCREENSHOTS – SUPERVISOR  ═══════════════════ -->
+    <h2>📊 Supervisor Dashboard</h2>
+
+    <div class="screenshot-row">
+        <figure class="screenshot-wrap">
+            <img src="../Description/menu superviseur.png"
+                 alt="Supervisor dashboard"/>
+            <figcaption>Supervisor overview — live active sessions and daily KPIs at a glance</figcaption>
+        </figure>
+        <figure class="screenshot-wrap">
+            <img src="../Description/of lancer superviseur menu.png"
+                 alt="Launched MOs in supervisor"/>
+            <figcaption>Launched MOs tab — priorities, burndown percentages and assigned technicians</figcaption>
+        </figure>
+    </div>
+
+    <!-- ═══════════════════  SCREENSHOTS – BACKEND  ═══════════════════ -->
+    <h2>🗂️ Backend Menus</h2>
+
+    <div class="screenshot-row">
+        <figure class="screenshot-wrap">
+            <img src="../Description/menu of lancer.png"
+                 alt="Launched MOs backend list"/>
+            <figcaption>Backend list of launched MOs — launch or retract with one click</figcaption>
+        </figure>
+        <figure class="screenshot-wrap">
+            <img src="../Description/menu block de temps.png"
+                 alt="Time blocks menu"/>
+            <figcaption>Time blocks (productivity records) — full traceability per employee and work-order</figcaption>
+        </figure>
+    </div>
+
+    <div class="screenshot-row">
+        <figure class="screenshot-wrap">
+            <img src="../Description/menu vacation.png"
+                 alt="Shift / vacation management"/>
+            <figcaption>Shift management — configure start/end times with automatic timer close-out</figcaption>
+        </figure>
+    </div>
+
+    <!-- ═══════════════════  FEATURE GRID  ═══════════════════ -->
+    <h2>✨ Key Features</h2>
+
+    <div class="feature-grid">
+        <div class="feature-card">
+            <div class="icon">🔑</div>
+            <h3>PIN / Badge Login</h3>
+            <p>Each technician authenticates with a personal numeric PIN directly on the touchscreen. No Odoo session required.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">⏱️</div>
+            <h3>Real-Time Time Tracking</h3>
+            <p>Start, Pause and Stop timers per work-order operation. Blocks are stored in <code>mrp.workcenter.productivity</code> — fully compatible with native Odoo reporting.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">🚀</div>
+            <h3>Launch-to-Kiosk Workflow</h3>
+            <p>Mark any confirmed MO as "Lancé" with one click. Only launched MOs appear in the kiosk, keeping the floor uncluttered.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">👷</div>
+            <h3>Technician Assignment</h3>
+            <p>Assign specific technicians to each MO. Each worker sees only their own jobs — no confusion, no accidental time entries.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">📊</div>
+            <h3>Supervisor Dashboard</h3>
+            <p>Dedicated web dashboard at <code>/atelier/supervisor</code> — live active sessions, launched MOs, daily technician summary, shifts and performance statistics.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">🕐</div>
+            <h3>Shift (Vacation) Management</h3>
+            <p>Define morning, afternoon and night shifts. Open timers are automatically closed when a shift ends — zero forgotten clock-outs.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">🔥</div>
+            <h3>Priority &amp; Burndown</h3>
+            <p>Tag MOs as Normal, Urgent or Critical. A burndown percentage shows how much planned time has already been consumed across all operations.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">✅</div>
+            <h3>Auto Quality Check</h3>
+            <p>An "Autocontrôle" quality check (pass/fail) is automatically created for every work-order when an MO is launched — seamlessly integrating with Odoo Quality.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">🖨️</div>
+            <h3>Daily Timesheet Report</h3>
+            <p>Print a clean daily pointage (timesheet) per technician directly from the backend — ideal for payroll or audit purposes.</p>
+        </div>
+    </div>
+
+    <!-- ═══════════════════  HOW IT WORKS  ═══════════════════ -->
+    <h2>⚡ How It Works</h2>
+
+    <table>
+        <thead>
+            <tr><th>Step</th><th>Actor</th><th>Action</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>Production Manager</td><td>Confirms the MO in Odoo and clicks <strong>Launch to Kiosk</strong></td></tr>
+            <tr><td>2</td><td>Production Manager</td><td>Assigns technicians to the MO (optional — all workers can see it if unassigned)</td></tr>
+            <tr><td>3</td><td>Technician</td><td>Opens the kiosk URL on the shop-floor screen, selects their name and enters their PIN</td></tr>
+            <tr><td>4</td><td>Technician</td><td>Sees their active MOs, taps <strong>Start</strong> on the desired operation</td></tr>
+            <tr><td>5</td><td>Technician</td><td>Taps <strong>Pause</strong> (break) or <strong>Stop</strong> (finished) — timer blocks are saved instantly</td></tr>
+            <tr><td>6</td><td>Supervisor</td><td>Monitors everything in real time from the Supervisor Dashboard</td></tr>
+            <tr><td>7</td><td>Shift cron</td><td>At shift end, all open timers are automatically closed</td></tr>
+        </tbody>
+    </table>
+
+    <!-- ═══════════════════  TECHNICAL  ═══════════════════ -->
+    <h2>🛠️ Technical Details</h2>
+
+    <ul>
+        <li><strong>Depends:</strong> <code>mrp</code>, <code>hr</code>, <code>web</code>, <code>quality_control</code>, <code>quality_mrp_workorder</code></li>
+        <li><strong>No external JS framework</strong> — the kiosk is built with vanilla JavaScript for maximum performance and reliability on low-end industrial hardware.</li>
+        <li><strong>Time data:</strong> Stored natively in <code>mrp.workcenter.productivity</code> — fully visible in standard Odoo OEE and productivity reports.</li>
+        <li><strong>Separate URLs:</strong> <code>/atelier</code> (kiosk) and <code>/atelier/supervisor</code> (dashboard) — bookmarkable and full-screen friendly.</li>
+        <li><strong>Scheduled action:</strong> A cron job checks shift end-times and auto-closes any open productivity blocks.</li>
+        <li><strong>License:</strong> LGPL-3</li>
+    </ul>
+
+    <!-- ═══════════════════  PRICE  ═══════════════════ -->
+    <div class="price-banner">
+        <div class="amount">$300</div>
+        <div class="note">One-time purchase · Lifetime access · Free updates for the purchased Odoo version</div>
+    </div>
+
+    <!-- ═══════════════════  AUTHOR  ═══════════════════ -->
+    <div class="author-card">
+        <div class="avatar">ML</div>
+        <div>
+            <h3>mouad lyaazale</h3>
+            <p>Odoo developer specialised in manufacturing, production tracking and custom kiosk interfaces.</p>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,555 @@
+/* ================================================================
+   Atelier Schiele Maroc – Superviseur CSS
+   Requires: atelier.css (loaded first)
+   ================================================================ */
+
+/* ---- Body override for supervisor ---- */
+body.supervisor-body {
+    background: var(--atelier-dark);
+}
+
+/* ---- Root container ---- */
+.sv-root {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 24px 20px;
+}
+
+/* ---- Tab navigation ---- */
+.sv-tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 24px;
+    border-bottom: 2px solid rgba(255,255,255,0.1);
+    flex-wrap: wrap;
+}
+
+.sv-tab {
+    padding: 12px 22px;
+    border: none;
+    background: none;
+    color: var(--atelier-muted);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    transition: all 0.2s;
+    border-radius: 8px 8px 0 0;
+}
+.sv-tab:hover  { color: var(--atelier-text); background: rgba(255,255,255,0.04); }
+.sv-tab.active { color: var(--atelier-primary); border-bottom-color: var(--atelier-primary); }
+
+/* ---- Panel ---- */
+.sv-panel { display: block; }
+.sv-panel.hidden { display: none; }
+
+/* ---- Refresh bar ---- */
+.sv-refresh-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.06);
+}
+
+.sv-muted {
+    color: var(--atelier-muted);
+    font-size: 0.88rem;
+}
+
+.sv-action-btn {
+    padding: 8px 18px;
+    background: var(--atelier-primary);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.sv-action-btn:hover { background: #1557b0; }
+.sv-action-btn.danger { background: var(--atelier-danger); }
+.sv-action-btn.danger:hover { background: #c0392b; }
+.sv-action-btn.warning { background: var(--atelier-warning); color: #000; }
+.sv-action-btn.warning:hover { background: #e0a800; }
+
+/* ---- Card grid ---- */
+.sv-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* ---- Loading indicator ---- */
+.sv-loading {
+    text-align: center;
+    color: var(--atelier-muted);
+    padding: 48px;
+    font-size: 1rem;
+}
+
+/* ---- Active block cards ---- */
+.sv-active-card {
+    background: var(--atelier-card);
+    border: 1px solid rgba(52, 168, 83, 0.3);
+    border-radius: var(--atelier-radius);
+    padding: 20px;
+    box-shadow: var(--atelier-shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.sv-active-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--atelier-success);
+}
+
+.sv-card-emp-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--atelier-text);
+    margin-bottom: 4px;
+}
+
+.sv-card-meta {
+    font-size: 0.85rem;
+    color: var(--atelier-muted);
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.sv-card-timer {
+    font-size: 2rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    color: var(--atelier-success);
+    margin: 12px 0;
+    letter-spacing: 1px;
+}
+
+.sv-card-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+/* ---- MO list (supervisor) ---- */
+.sv-mo-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.sv-mo-row {
+    background: var(--atelier-card);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    flex-wrap: wrap;
+}
+
+.sv-mo-row.prio-1 { border-left: 4px solid var(--atelier-warning); }
+.sv-mo-row.prio-2 { border-left: 4px solid var(--atelier-danger); }
+
+.sv-mo-name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--atelier-primary);
+}
+
+.sv-mo-info {
+    font-size: 0.85rem;
+    color: var(--atelier-muted);
+    margin-top: 2px;
+}
+
+.sv-burndown-wrap {
+    min-width: 200px;
+    flex: 1;
+}
+
+.sv-burndown-label {
+    font-size: 0.8rem;
+    color: var(--atelier-muted);
+    margin-bottom: 4px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.sv-burndown-bar {
+    height: 10px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.sv-burndown-fill {
+    height: 100%;
+    border-radius: 5px;
+    transition: width 0.5s ease;
+    background: var(--atelier-success);
+}
+.sv-burndown-fill.warn { background: var(--atelier-warning); }
+.sv-burndown-fill.over { background: var(--atelier-danger); }
+
+/* ---- Employee summary cards ---- */
+.sv-emp-card {
+    background: var(--atelier-card);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: var(--atelier-radius);
+    padding: 20px;
+    box-shadow: var(--atelier-shadow);
+    text-align: center;
+}
+
+.sv-emp-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--atelier-primary);
+    margin: 0 auto 10px;
+    display: block;
+}
+
+.sv-emp-avatar-placeholder {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--atelier-primary);
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+    border: 3px solid rgba(255,255,255,0.2);
+}
+
+.sv-emp-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--atelier-text);
+    margin-bottom: 4px;
+}
+
+.sv-emp-total {
+    font-size: 1.4rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    color: var(--atelier-primary);
+    margin: 8px 0 4px;
+}
+
+.sv-emp-ops {
+    font-size: 0.82rem;
+    color: var(--atelier-muted);
+}
+
+.sv-emp-active-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--atelier-success);
+    margin-right: 4px;
+    vertical-align: middle;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.5; transform: scale(1.3); }
+}
+
+.sv-emp-card-active {
+    border-color: rgba(52, 168, 83, 0.35);
+    box-shadow: 0 0 0 1px rgba(52,168,83,0.2), var(--atelier-shadow);
+}
+
+.sv-emp-current {
+    background: rgba(52, 168, 83, 0.08);
+    border: 1px solid rgba(52, 168, 83, 0.2);
+    border-radius: 8px;
+    padding: 8px 10px;
+    margin: 8px 0;
+    font-size: 0.82rem;
+    text-align: left;
+    line-height: 1.7;
+}
+
+.sv-emp-current-mo {
+    font-weight: 700;
+    color: var(--atelier-primary);
+}
+
+.sv-emp-current-op {
+    color: var(--atelier-text);
+}
+
+.sv-emp-current-wc {
+    color: var(--atelier-muted);
+    font-size: 0.78rem;
+}
+
+/* ---- Shift cards ---- */
+.sv-shift-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.sv-shift-row {
+    background: var(--atelier-card);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 18px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    flex-wrap: wrap;
+}
+
+.sv-shift-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--atelier-text);
+}
+
+.sv-shift-hours {
+    font-size: 1.1rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--atelier-primary);
+    font-weight: 600;
+}
+
+.sv-shift-emps {
+    font-size: 0.85rem;
+    color: var(--atelier-muted);
+    margin-top: 4px;
+}
+
+.sv-shift-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 10px;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+.sv-shift-badge.active-now {
+    background: rgba(52,168,83,0.2);
+    color: var(--atelier-success);
+}
+.sv-shift-badge.inactive {
+    background: rgba(255,255,255,0.07);
+    color: var(--atelier-muted);
+}
+
+/* ---- Toast (supervisor) ---- */
+#sv-toast-area {
+    position: fixed;
+    top: 80px;
+    right: 24px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sv-toast {
+    background: var(--atelier-card);
+    border-left: 4px solid var(--atelier-success);
+    border-radius: 8px;
+    padding: 12px 18px;
+    box-shadow: var(--atelier-shadow);
+    font-size: 0.9rem;
+    max-width: 340px;
+    animation: slideIn 0.3s ease;
+    color: var(--atelier-text);
+}
+.sv-toast.error   { border-color: var(--atelier-danger); }
+.sv-toast.info    { border-color: var(--atelier-primary); }
+.sv-toast.warning { border-color: var(--atelier-warning); }
+
+/* ---- Section heading ---- */
+.sv-section-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--atelier-text);
+    margin: 0 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+/* ---- Empty state ---- */
+.sv-empty {
+    text-align: center;
+    color: var(--atelier-muted);
+    padding: 48px;
+    font-size: 1rem;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+    .sv-root { padding: 12px 10px; }
+    .sv-tabs { overflow-x: auto; flex-wrap: nowrap; }
+    .sv-tab  { padding: 10px 14px; font-size: 0.88rem; white-space: nowrap; }
+    .sv-card-grid { grid-template-columns: 1fr; }
+    .sv-mo-row { flex-direction: column; align-items: flex-start; }
+    .sv-burndown-wrap { min-width: 100%; }
+}
+
+/* ════════════════════════════════════════════════════════════════
+   Onglet Performance / Stats
+   ════════════════════════════════════════════════════════════════ */
+
+.sv-stats-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--atelier-border);
+    margin-bottom: 20px;
+}
+
+.sv-period-btn {
+    background: var(--atelier-card);
+    color: var(--atelier-text);
+    border: 1px solid var(--atelier-border);
+    border-radius: 8px;
+    padding: 8px 18px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+.sv-period-btn:hover { background: var(--atelier-border); }
+.sv-period-btn.active {
+    background: var(--atelier-accent);
+    color: #fff;
+    border-color: var(--atelier-accent);
+    font-weight: 600;
+}
+
+.sv-stats-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 32px;
+}
+
+.sv-stats-card {
+    background: var(--atelier-card);
+    border: 1px solid var(--atelier-border);
+    border-radius: 14px;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.sv-stats-time {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--atelier-accent);
+    min-width: 80px;
+    text-align: right;
+}
+
+/* Score de productivité */
+.sv-score-bar-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+}
+.sv-score-bar {
+    flex: 1;
+    height: 8px;
+    background: var(--atelier-border);
+    border-radius: 4px;
+    overflow: hidden;
+    max-width: 260px;
+}
+.sv-score-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.4s;
+}
+.sv-score-fill.score-low   { background: #ef4444; }
+.sv-score-fill.score-ok    { background: #22c55e; }
+.sv-score-fill.score-high  { background: #f59e0b; }
+.sv-score-label            { font-size: 0.85rem; font-weight: 600; min-width: 44px; }
+.sv-score-label.score-low  { color: #ef4444; }
+.sv-score-label.score-ok   { color: #22c55e; }
+.sv-score-label.score-high { color: #f59e0b; }
+
+/* Timeline */
+.sv-timeline-section {
+    margin-top: 8px;
+}
+.sv-timeline-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--atelier-accent);
+    margin-bottom: 16px;
+}
+.sv-tl-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+.sv-tl-label {
+    width: 140px;
+    font-size: 0.85rem;
+    color: var(--atelier-text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-shrink: 0;
+}
+.sv-tl-track {
+    flex: 1;
+    height: 28px;
+    background: var(--atelier-border);
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+}
+.sv-tl-seg {
+    position: absolute;
+    top: 3px;
+    height: 22px;
+    background: var(--atelier-accent);
+    border-radius: 4px;
+    opacity: 0.85;
+    min-width: 4px;
+}
+.sv-tl-seg.sv-tl-open {
+    background: #22c55e;
+    opacity: 1;
+    animation: tl-pulse 1.5s ease-in-out infinite;
+}
+@keyframes tl-pulse {
+    0%,100% { opacity: 1; }
+    50%      { opacity: 0.6; }
+}

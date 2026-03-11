@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="atelier_param_auto_logout" model="ir.config_parameter">
+        <field name="key">atelier.auto_logout_minutes</field>
+        <field name="value">10</field>
+    </record>
+
+</odoo>
