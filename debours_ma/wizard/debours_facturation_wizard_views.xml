@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Wizard: Créer Facture Fournisseur Débours -->
+    <record id="view_debours_facturation_wizard_form" model="ir.ui.view">
+        <field name="name">debours.facturation.wizard.form</field>
+        <field name="model">debours.facturation.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Créer Facture Fournisseur – Débours">
+                <group>
+                    <group string="Prestataire">
+                        <field name="dossier_id" readonly="1"/>
+                        <field name="partner_id" readonly="1"/>
+                        <field name="regime_encaissement" readonly="1" widget="boolean_toggle"/>
+                    </group>
+                    <group string="Facturation">
+                        <field name="ref_facture"/>
+                        <field name="journal_id"/>
+                        <field name="date_facture"/>
+                        <field name="date_echeance"/>
+                    </group>
+                </group>
+
+                <group string="Récapitulatif">
+                    <group>
+                        <field name="total_debours" readonly="1"/>
+                        <field name="honoraires_ht" readonly="1"/>
+                        <field name="tva_honoraires" readonly="1"/>
+                        <field name="montant_total" readonly="1"/>
+                        <field name="currency_id" invisible="1"/>
+                    </group>
+                </group>
+
+                <div class="alert alert-info" role="alert"
+                     invisible="not regime_encaissement">
+                    <strong>Régime Encaissement Fournisseur :</strong>
+                    La TVA récupérable de <field name="tva_honoraires" readonly="1" nolabel="1" widget="monetary"/> MAD
+                    ne sera déductible qu'après paiement de cette facture.
+                </div>
+
+                <div class="alert alert-secondary" role="alert">
+                    <strong>Écriture générée (Plan Comptable Marocain) :</strong><br/>
+                    Dr 6114xx Débours HORS TVA  | 
+                    Dr 614250 Honoraires HT  | 
+                    Dr 345520 TVA récup.  -> 
+                    Cr 4411 Fournisseurs
+                </div>
+
+                <footer>
+                    <button name="action_create_bill"
+                            string="Créer la Facture Fournisseur"
+                            type="object"
+                            class="btn-primary"/>
+                    <button string="Annuler" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

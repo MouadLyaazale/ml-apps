@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Séquence pour les dossiers de débours -->
+        <record id="seq_debours_dossier" model="ir.sequence">
+            <field name="name">Séquence Dossiers Débours</field>
+            <field name="code">debours.dossier</field>
+            <field name="prefix">DEB/%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- LIST view for debours.line -->
+    <record id="view_debours_line_list" model="ir.ui.view">
+        <field name="name">debours.line.list</field>
+        <field name="model">debours.line</field>
+        <field name="arch" type="xml">
+            <list string="Frais Avancés par le Prestataire"
+                  decoration-success="state == 'included'"
+                  decoration-muted="state == 'draft'">
+                <field name="dossier_id"/>
+                <field name="name"/>
+                <field name="date_depense"/>
+                <field name="partner_tiers_id"/>
+                <field name="montant" sum="Total"/>
+                <field name="ref_piece"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'included'"
+                       decoration-info="state == 'draft'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- FORM view for debours.line -->
+    <record id="view_debours_line_form" model="ir.ui.view">
+        <field name="name">debours.line.form</field>
+        <field name="model">debours.line</field>
+        <field name="arch" type="xml">
+            <form string="Frais Avancé">
+                <header>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,included"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group string="Débours">
+                            <field name="dossier_id"/>
+                            <field name="name"/>
+                            <field name="date_depense"/>
+                            <field name="partner_tiers_id"/>
+                            <field name="ref_piece"/>
+                        </group>
+                        <group string="Montant">
+                            <field name="montant"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                    </group>
+                    <group string="Notes">
+                        <field name="notes" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- SEARCH view for debours.line -->
+    <record id="view_debours_line_search" model="ir.ui.view">
+        <field name="name">debours.line.search</field>
+        <field name="model">debours.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="dossier_id"/>
+                <field name="partner_tiers_id"/>
+                <filter name="draft" string="À Facturer" domain="[('state','=','draft')]"/>
+                <filter name="included" string="Inclus" domain="[('state','=','included')]"/>
+                <group>
+                    <filter name="group_dossier" string="Dossier" context="{'group_by': 'dossier_id'}"/>
+                    <filter name="group_state" string="État" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- ACTION -->
+    <record id="action_debours_line" model="ir.actions.act_window">
+        <field name="name">Frais Débours</field>
+        <field name="res_model">debours.line</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_debours_line_search"/>
+    </record>
+
+</odoo>

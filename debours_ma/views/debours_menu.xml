@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ═══════════════════════════════════════════════════════
+         MENUS – Gestion des Débours Marocains
+    ═══════════════════════════════════════════════════════ -->
+
+    <!-- Racine dans le menu Comptabilité -->
+    <menuitem id="menu_debours_root"
+              name="Débours"
+              parent="accountant.menu_accounting"
+              sequence="99"
+              groups="account.group_account_invoice"/>
+
+    <!-- Sous-menu Dossiers -->
+    <menuitem id="menu_debours_dossiers"
+              name="Dossiers de Débours"
+              parent="menu_debours_root"
+              action="action_debours_dossier"
+              sequence="10"/>
+
+    <!-- Sous-menu Lignes -->
+    <menuitem id="menu_debours_lines"
+              name="Lignes de Débours"
+              parent="menu_debours_root"
+              action="action_debours_line"
+              sequence="20"/>
+
+    <!-- Séparateur configuration -->
+    <menuitem id="menu_debours_config"
+              name="Configuration Débours"
+              parent="menu_debours_root"
+              action="action_debours_config"
+              sequence="90"
+              groups="account.group_account_manager"/>
+
+</odoo>

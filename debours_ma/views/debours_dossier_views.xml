@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- REDESIGNED: client perspective – receives vendor bills from transitaires -->
+<odoo>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         FORM VIEW – Dossier de Débours
+    ═══════════════════════════════════════════════════════════════════ -->
+    <record id="view_debours_dossier_form" model="ir.ui.view">
+        <field name="name">debours.dossier.form</field>
+        <field name="model">debours.dossier</field>
+        <field name="arch" type="xml">
+            <form string="Dossier de Débours">
+
+                <header>
+                    <button name="action_validate"
+                            string="Valider le Dossier"
+                            type="object"
+                            class="btn-primary"
+                            invisible="state != 'draft'"/>
+                    <button name="action_open_bill_wizard"
+                            string="Créer Facture Fournisseur"
+                            type="object"
+                            class="btn-primary"
+                            invisible="state != 'validated'"/>
+                    <button name="action_mark_paid"
+                            string="Marquer Payé"
+                            type="object"
+                            class="btn-success"
+                            invisible="state != 'billed'"/>
+                    <button name="action_cancel"
+                            string="Annuler"
+                            type="object"
+                            class="btn-secondary"
+                            invisible="state in ('paid', 'cancel')"/>
+                    <button name="action_reset_draft"
+                            string="Remettre en Brouillon"
+                            type="object"
+                            invisible="state != 'cancel'"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,validated,billed,paid"/>
+                </header>
+
+                <div class="o_button_box" name="button_box">
+                    <button name="action_view_vendor_bills"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-file-text-o"
+                            invisible="vendor_bill_count == 0">
+                        <field name="vendor_bill_count" widget="statinfo"
+                               string="Factures Fourn."/>
+                    </button>
+                </div>
+
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group string="Prestataire / Transitaire">
+                            <field name="partner_id" readonly="state != 'draft'"/>
+                            <field name="date_dossier" readonly="state != 'draft'"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="regime_encaissement"
+                                   readonly="state != 'draft'"/>
+                        </group>
+                        <group string="Honoraires Prestataire">
+                            <field name="honoraires_ht" readonly="state != 'draft'"/>
+                            <field name="taux_tva" readonly="state != 'draft'"/>
+                            <field name="tva_honoraires" readonly="1"/>
+                            <field name="honoraires_ttc" readonly="1"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <!-- Lignes de débours -->
+                        <page string="Lignes de Débours" name="lignes">
+                            <field name="line_ids" readonly="state != 'draft'">
+                                <list editable="bottom" decoration-success="state == 'paid'"
+                                       decoration-info="state == 'invoiced'"
+                                       decoration-muted="state == 'draft'">
+                                    <field name="name"/>
+                                    <field name="date_depense"/>
+                                    <field name="partner_tiers_id"/>
+                                    <field name="montant" sum="Total"/>
+                                    <field name="ref_piece"/>
+                                    <field name="state" widget="badge"
+                                           decoration-success="state == 'included'"
+                                           decoration-info="state == 'draft'"/>
+                                </list>
+                            </field>
+
+                            <div style="text-align:right; padding: 8px;">
+                                <strong>Total Débours : </strong>
+                                <field name="total_debours" readonly="1"
+                                       widget="monetary" nolabel="1"/>
+                            </div>
+                        </page>
+
+                        <!-- Récapitulatif comptable -->
+                        <page string="Récapitulatif Comptable PCM" name="recap">
+                            <group>
+                                <div style="background:#f8f9fa; padding:16px; border-radius:6px;">
+                                    <p><strong>Facture Fournisseur – Écriture automatique Odoo</strong></p>
+                                    <table class="table table-sm table-bordered">
+                                        <thead><tr>
+                                            <th>Compte</th><th>Libellé</th>
+                                            <th class="text-end">Débit</th>
+                                            <th class="text-end">Crédit</th>
+                                        </tr></thead>
+                                        <tbody>
+                                            <tr><td>6114xx</td><td>Charges Débours (HORS TVA)</td>
+                                                <td class="text-end"><field name="total_debours" readonly="1" nolabel="1"/></td>
+                                                <td></td></tr>
+                                            <tr><td>614250</td><td>Honoraires Prestataire HT</td>
+                                                <td class="text-end"><field name="honoraires_ht" readonly="1" nolabel="1"/></td>
+                                                <td></td></tr>
+                                            <tr><td>345520</td>
+                                                <td>
+                                                    TVA Récupérable 20%
+                                                    <span invisible="not regime_encaissement"
+                                                          class="badge bg-warning text-dark ms-1">
+                                                        Encaissement
+                                                    </span>
+                                                </td>
+                                                <td class="text-end"><field name="tva_honoraires" readonly="1" nolabel="1"/></td>
+                                                <td></td></tr>
+                                            <tr><td>4411</td><td>Fournisseurs (Total à payer)</td>
+                                                <td></td>
+                                                <td class="text-end"><field name="montant_facture_fournisseur" readonly="1" nolabel="1"/></td></tr>
+                                        </tbody>
+                                    </table>
+
+                                    <div invisible="not regime_encaissement"
+                                         class="alert alert-info mt-3" role="alert">
+                                        <strong>Régime Encaissement Fournisseur :</strong>
+                                        La TVA de
+                                        <field name="tva_honoraires" readonly="1" nolabel="1" widget="monetary"/>
+                                        MAD (compte 345520) n'est récupérable qu'après notre paiement au prestataire.
+                                    </div>
+                                </div>
+                            </group>
+                        </page>
+
+                        <!-- Notes -->
+                        <page string="Notes" name="notes">
+                            <field name="description"/>
+                        </page>
+                    </notebook>
+                </sheet>
+
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- LIST VIEW -->
+    <record id="view_debours_dossier_list" model="ir.ui.view">
+        <field name="name">debours.dossier.list</field>
+        <field name="model">debours.dossier</field>
+        <field name="arch" type="xml">
+            <list string="Dossiers de Débours"
+                  decoration-success="state == 'paid'"
+                  decoration-warning="state == 'billed'"
+                  decoration-info="state == 'validated'"
+                  decoration-muted="state == 'cancel'">
+                <field name="name"/>
+                <field name="date_dossier"/>
+                <field name="partner_id" string="Prestataire"/>
+                <field name="total_debours" sum="Total Débours"/>
+                <field name="honoraires_ttc" sum="Honoraires TTC"/>
+                <field name="montant_facture_fournisseur" sum="Total Fournisseur"/>
+                <field name="regime_encaissement" widget="boolean_toggle"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'paid'"
+                       decoration-warning="state == 'billed'"
+                       decoration-primary="state == 'validated'"
+                       decoration-muted="state == 'cancel'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- KANBAN VIEW -->
+    <record id="view_debours_dossier_kanban" model="ir.ui.view">
+        <field name="name">debours.dossier.kanban</field>
+        <field name="model">debours.dossier</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" class="o_kanban_small_column">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="total_debours"/>
+                <field name="montant_facture_fournisseur"/>
+                <field name="state"/>
+                <field name="date_dossier"/>
+                <field name="regime_encaissement"/>
+                <templates>
+                    <t t-name="card">
+                        <div class="oe_kanban_global_click">
+                            <div class="o_kanban_record_top">
+                                <div class="o_kanban_record_headings">
+                                    <strong class="o_kanban_record_title">
+                                        <field name="name"/>
+                                    </strong>
+                                </div>
+                                <div>
+                                    <span t-if="record.regime_encaissement.raw_value"
+                                          class="badge bg-warning text-dark">Enc.</span>
+                                </div>
+                            </div>
+                            <div class="o_kanban_record_body">
+                                <div><field name="partner_id"/></div>
+                                <div><field name="date_dossier"/></div>
+                            </div>
+                            <div class="o_kanban_record_bottom">
+                                <div class="oe_kanban_bottom_left">
+                                    <span>Débours : <field name="total_debours" widget="monetary"/></span>
+                                </div>
+                                <div class="oe_kanban_bottom_right">
+                                    <span>Total : <field name="montant_facture_fournisseur" widget="monetary"/></span>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- SEARCH VIEW -->
+    <record id="view_debours_dossier_search" model="ir.ui.view">
+        <field name="name">debours.dossier.search</field>
+        <field name="model">debours.dossier</field>
+        <field name="arch" type="xml">
+            <search string="Rechercher Dossiers de Débours">
+                <field name="name" string="Référence"/>
+                <field name="partner_id" string="Prestataire"/>
+                <separator/>
+                <filter name="draft" string="Brouillon" domain="[('state','=','draft')]"/>
+                <filter name="validated" string="Validé" domain="[('state','=','validated')]"/>
+                <filter name="billed" string="Facturé" domain="[('state','=','billed')]"/>
+                <filter name="paid" string="Payé" domain="[('state','=','paid')]"/>
+                <separator/>
+                <filter name="regime_encaissement" string="Régime Encaissement"
+                        domain="[('regime_encaissement','=',True)]"/>
+                <group>
+                    <filter name="group_state" string="État" context="{'group_by': 'state'}"/>
+                    <filter name="group_partner" string="Prestataire" context="{'group_by': 'partner_id'}"/>
+                    <filter name="group_date" string="Date" context="{'group_by': 'date_dossier:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- ACTION -->
+    <record id="action_debours_dossier" model="ir.actions.act_window">
+        <field name="name">Dossiers de Débours</field>
+        <field name="res_model">debours.dossier</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="search_view_id" ref="view_debours_dossier_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Créez votre premier dossier de débours
+            </p>
+            <p>
+                Gérez les frais avancés par vos prestataires (transitaires, notaires…)
+                et les factures fournisseurs associées.
+            </p>
+        </field>
+    </record>
+
+</odoo>

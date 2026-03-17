@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Configuration Débours – Form -->
+    <record id="view_debours_config_form" model="ir.ui.view">
+        <field name="name">debours.config.form</field>
+        <field name="model">debours.config</field>
+        <field name="arch" type="xml">
+            <form string="Configuration Débours">
+                <sheet>
+                    <div class="oe_title">
+                        <h2>Configuration Comptable Débours (Perspective Client)</h2>
+                    </div>
+                    <group>
+                        <group string="Société">
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Comptes de Charges (Plan Comptable Marocain)">
+                            <field name="account_debours_id"/>
+                            <field name="account_honoraires_id"/>
+                            <field name="account_tva_id"/>
+                        </group>
+                        <group string="Journal par Défaut">
+                            <field name="journal_achat_id"/>
+                        </group>
+                    </group>
+                    <div class="alert alert-info" role="alert">
+                        <strong>Régime Encaissement Fournisseur :</strong><br/>
+                        Les débours (frais avancés pour notre compte) sont <strong>HORS TVA</strong>.<br/>
+                        La TVA 20% sur les honoraires du prestataire est récupérable uniquement
+                        après notre paiement (si la taxe est paramétrée "Sur encaissement" dans Odoo).
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Configuration Débours – List -->
+    <record id="view_debours_config_list" model="ir.ui.view">
+        <field name="name">debours.config.list</field>
+        <field name="model">debours.config</field>
+        <field name="arch" type="xml">
+            <list string="Configuration Débours">
+                <field name="company_id"/>
+                <field name="account_debours_id"/>
+                <field name="account_honoraires_id"/>
+                <field name="account_tva_id"/>
+                <field name="journal_achat_id"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ACTION Configuration -->
+    <record id="action_debours_config" model="ir.actions.act_window">
+        <field name="name">Configuration Débours</field>
+        <field name="res_model">debours.config</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

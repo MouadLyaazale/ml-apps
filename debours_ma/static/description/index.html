@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Debours Maroc - Odoo 19 | FR EN</title>
+  <style>
+    :root {
+      --c-primary: #0b4f6c;
+      --c-secondary: #127c91;
+      --c-accent: #f2c14e;
+      --c-bg: #f5fbfd;
+      --c-text: #183446;
+      --c-soft: #e6f4f8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+      color: var(--c-text);
+      background: linear-gradient(160deg, #ffffff 0%, var(--c-bg) 100%);
+      line-height: 1.5;
+    }
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 28px 20px 48px;
+    }
+    .hero {
+      background: linear-gradient(145deg, var(--c-primary), var(--c-secondary));
+      border-radius: 18px;
+      padding: 34px 28px;
+      color: #fff;
+      box-shadow: 0 12px 32px rgba(11, 79, 108, 0.24);
+      overflow: hidden;
+      position: relative;
+    }
+    .hero:after {
+      content: "";
+      position: absolute;
+      right: -70px;
+      bottom: -70px;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.09);
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 36px;
+      line-height: 1.2;
+    }
+    .sub {
+      margin: 0;
+      font-size: 19px;
+      color: #d7edf5;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 18px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 18px;
+      border: 1px solid #d7ebf2;
+      box-shadow: 0 6px 18px rgba(24, 52, 70, 0.06);
+    }
+    .card h3 {
+      margin: 0 0 10px;
+      color: var(--c-primary);
+      font-size: 20px;
+    }
+    .chip {
+      display: inline-block;
+      background: var(--c-soft);
+      color: var(--c-primary);
+      font-weight: 700;
+      border-radius: 999px;
+      padding: 6px 12px;
+      margin-bottom: 10px;
+      font-size: 13px;
+    }
+    ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+    li { margin: 7px 0; }
+    .banner {
+      margin-top: 24px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid #d6e8ef;
+    }
+    .banner img { width: 100%; display: block; }
+    .cta {
+      margin-top: 20px;
+      background: #fff;
+      border: 1px solid #d6e8ef;
+      border-left: 6px solid var(--c-accent);
+      padding: 18px;
+      border-radius: 12px;
+      font-size: 16px;
+    }
+    .section-title {
+      margin: 22px 0 10px;
+      font-size: 22px;
+      color: var(--c-primary);
+      font-weight: 800;
+    }
+    .keywords {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .keywords span {
+      background: #ffffff;
+      border: 1px solid #d6e8ef;
+      border-radius: 999px;
+      font-size: 12px;
+      padding: 5px 10px;
+      color: #24546b;
+      font-weight: 600;
+    }
+    .author {
+      margin-top: 14px;
+      font-weight: 700;
+      color: var(--c-primary);
+    }
+    @media (max-width: 800px) {
+      .grid { grid-template-columns: 1fr; }
+      h1 { font-size: 30px; }
+      .sub { font-size: 17px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <h1>Debours Maroc for Odoo 19</h1>
+      <p class="sub">FR + EN listing. Pilotez vos debours: dossier, supplier bill, paiement, TVA regime encaissement.</p>
+      <div class="keywords">
+        <span>Debours Maroc</span>
+        <span>TVA encaissement</span>
+        <span>Transitaire</span>
+        <span>Supplier Bill</span>
+        <span>Vendor Invoice</span>
+        <span>Odoo Accounting</span>
+      </div>
+    </section>
+
+    <h2 class="section-title">Version Francaise</h2>
+
+    <div class="grid">
+      <section class="card">
+        <span class="chip">Pourquoi ce module</span>
+        <h3>Un flux débours 100% opérationnel</h3>
+        <ul>
+          <li>Centralisez tous les frais avancés par un prestataire dans un dossier unique.</li>
+          <li>Ajoutez honoraires, TVA et pièces justificatives sans complexité.</li>
+          <li>Générez la facture fournisseur automatiquement depuis le dossier validé.</li>
+          <li>Suivez l'état de chaque dossier: brouillon, validé, facturé, payé.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <span class="chip">Comptabilité Maroc</span>
+        <h3>TVA et encaissement maîtrisés</h3>
+        <ul>
+          <li>Prise en charge du régime d'encaissement côté fournisseur.</li>
+          <li>TVA récupérable sur honoraires avec logique compatible Odoo Accounting.</li>
+          <li>Comptes de débours, honoraires et TVA configurables par société.</li>
+          <li>Traçabilité complète via le chatter et les liaisons de factures.</li>
+        </ul>
+      </section>
+    </div>
+
+    <h2 class="section-title">English Version</h2>
+
+    <div class="grid">
+      <section class="card">
+        <span class="chip">Why this module</span>
+        <h3>End-to-end disbursement workflow</h3>
+        <ul>
+          <li>Group all third-party expenses advanced by a provider in one disbursement file.</li>
+          <li>Add provider fees, VAT, and supporting references with clean data structure.</li>
+          <li>Generate supplier bill (vendor invoice) directly from the validated file.</li>
+          <li>Track each file status from draft to paid with full accounting visibility.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <span class="chip">Morocco VAT Logic</span>
+        <h3>Cash basis VAT compliance ready</h3>
+        <ul>
+          <li>Supports supplier cash basis VAT logic (regime d'encaissement).</li>
+          <li>Handles deductible VAT on provider fees in an Odoo-native way.</li>
+          <li>Company-level setup for disbursement account, fee account, and VAT account.</li>
+          <li>Audit trail with chatter and linked supplier bills.</li>
+        </ul>
+      </section>
+    </div>
+
+    <section class="banner">
+      <img src="banner.png" alt="Debours Maroc Odoo 19 banner">
+    </section>
+
+    <section class="cta">
+      Ce module est idéal pour les entreprises marocaines qui veulent sécuriser leur gestion des débours,
+      réduire les erreurs comptables et accélérer le traitement des factures prestataires.
+      <br><br>
+      This module is ideal for Moroccan companies that need a reliable disbursement process,
+      faster vendor billing operations, and better VAT deduction control.
+      <div class="author">Publication et support: Mouad Lyaazale</div>
+    </section>
+  </div>
+</body>
+</html>

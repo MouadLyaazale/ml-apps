@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <!--
+            NOTE : Les comptes comptables sont créés manuellement par l'utilisateur
+            dans la configuration du module (Comptabilité > Débours > Configuration).
+
+            Ce fichier fournit uniquement les données de démonstration/paramétrage
+            qui ne dépendent pas d'un plan comptable spécifique.
+
+            Pour votre installation Maroc (l10n_ma), configurez :
+              - 3488 : Divers débiteurs
+              - 3421 : Clients
+              - 4455 : État T.V.A / Facturée
+              - 7124 : Ventes de services produits au Maroc
+        -->
+    </data>
+</odoo>

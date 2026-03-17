@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Wizard Paiement – kept for DB compatibility, not used in main flow -->
+    <record id="view_debours_paiement_wizard_form" model="ir.ui.view">
+        <field name="name">debours.paiement.wizard.form</field>
+        <field name="model">debours.paiement.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Paiement Débours">
+                <group>
+                    <field name="dossier_id" readonly="1"/>
+                </group>
+                <footer>
+                    <button string="Fermer" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>
