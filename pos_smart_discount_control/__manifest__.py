@@ -65,7 +65,6 @@ Take full control of discounts and pricing in your Odoo Point of Sale.
     'images': ['static/description/banner.png'],
     'license': 'OPL-1',
     'currency': 'USD',
-    'price': 29.0,
     'installable': True,
     'auto_install': False,
     'application': True,
