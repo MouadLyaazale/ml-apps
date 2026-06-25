@@ -8,7 +8,6 @@
     "website": "mailto:mouad.lyaazale@gmail.com",
     "license": "OPL-1",
     "category": "Sales/Sales",
-    "price": 29.00,
     "currency": "USD",
     "depends": ["sale_management", "mail"],
     "data": [],
